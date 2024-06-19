@@ -1,0 +1,53 @@
+<!--pages/EventAdmin/BoothManager/ViewLuckyDrawCommodity/ViewLuckyDrawCommodity.wxml-->
+<wxs module="fmt" src="../../../../utils/format.wxs"></wxs>
+<view class="content"> 
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Lucky Draw Ticket'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Lucky Draw Ticket</view>
+				</view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no">
+						<button class="fa fa-plus" type="primary" size="mini" bindtap="addCommodity" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+					</view>
+				</view>
+            </view>
+            <view class="uni-card__actions">
+                <view class="card-actions" style="font-size: 30rpx;">
+                    <view class="card-actions-item" style="width: 50%;">Name</view>
+                    <view class="card-actions-item">Number</view>
+                    <view class="card-actions-item">Price(RMB)</view>
+                    <view class="card-actions-item">Enable</view>
+                    <view class="card-actions-item">Operate</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{commodityList}}" wx:key="this"> 
+                <view class="card-actions" style="font-size: 30rpx;">
+                    <view class="card-actions-item" style="width: 50%;">{{item.name}}</view>
+                    <view class="card-actions-item">{{item.number}}</view>
+                    <view class="card-actions-item">{{item.price}}</view>
+                    <view class="card-actions-item">
+                        <switch checked="{{item.status}}" data-id="{{item.ID}}" bindchange="changeStatus" style="zoom: .6;" />
+                    </view>
+                    <view class="card-actions-item">
+                        <button class="fa fa-pencil" size="mini" data-id="{{item.ID}}" bindtap="toEditCommodity" style="font-size: 30rpx;"></button>
+					</view>
+				</view>
+				<view style="font-size: 30rpx;margin-bottom: 20rpx;">
+					<view>Available start D/T：{{fmt.formatDate_MMddHHmm(item.startDate) }}</view>
+                    <view>Available finish D/T：{{fmt.formatDate_MMddHHmm(item.endDate) }}</view>
+				</view>
+			</view>
+			<block wx:if="{{commodityList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

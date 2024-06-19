@@ -1,0 +1,38 @@
+<!--pages/EventAdmin/BoothManager/ViewSponsor/ViewSponsor.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='{{sponsorTypeName}} List'></my-top>
+	<view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">{{sponsorTypeName}} List</view>
+                </view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no"></view>
+				</view>
+            </view>
+			<view class="uni-card__actions" wx:for="{{companyList}}" wx:key="this">
+				<view class="card-actions">
+					<block wx:if="{{sponsorType == 1}}">
+						<view class="card-actions-item" style="width: 50%;">{{item.sponsor_name}}</view>
+					</block>
+					<block wx:if="{{sponsorType == 2 || sponsorType == 3}}">
+						<view class="card-actions-item" style="width: 50%;">{{item.sponsor_name}}</view>
+					</block>
+					<view class="card-actions-item" style="width: 30%;">
+						<button class="fa fa-pencil" data-companyid="{{item.sponsor_ID}}" bindtap="toEditSponsor" style="font-size: 30rpx;"></button>
+						<button class="fa fa-trash" data-companyid="{{item.sponsor_ID}}" bindtap="deleteSponsor" style="font-size: 30rpx;margin-left: 10rpx;"></button>
+					</view>
+				</view>
+			</view>
+			<block wx:if="{{companyList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

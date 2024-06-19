@@ -1,0 +1,45 @@
+<!--pages/EventAdmin/BoothManager/ViewBoothMenu/ViewBoothMenu.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Booth Menu'></my-top>
+    <view class="uni-list">
+        <view class="uni-body">
+            <view class="uni-section-header">
+                <view class="uni-section-line"></view>
+                <view class="uni-section-header__content">Booth Menu</view>
+            </view>
+			<view class="uni-content-right"> 
+                <view class="uni-content-no">{{boothNo}}</view>
+                <view class="uni-content-name">{{boothName}}</view>
+            </view>
+        </view>
+        <view class="uni-card__actions">
+            <view class="card-actions">
+                <view class="card-actions-item">Menu Icon</view>
+                <view class="card-actions-item" style="width: 40%;">Menu Name</view>
+                <view class="card-actions-item">Operate</view>
+            </view>
+        </view>
+        <view class="uni-card__actions" wx:for="{{boothMenuList}}" wx:key="this" bindtap="foodMenu" data-value="{{item.booth_ID}}" data-no="{{item.booth_no}}" data-name="{{item.booth_name}}">
+            <view class="card-actions">
+                <view class="card-actions-item">
+					<view style="width: 90%;height: 130rpx;" bindtap="uploadImage" data-menuid="{{item.menu_ID}}">
+						<block wx:if="{{item.icon != ''}}">
+							<image mode="aspectFit" src="{{item.icon}}" style="width: 100%;height: 100%;"></image>
+						</block>
+					</view>
+                </view>
+                <view class="card-actions-item" data-menuid="{{item.menu_ID}}" bindtap="toEditBoothMenu" style="color: #2979ff;width: 40%;">{{item.menu_name}}</view>
+                <view class="card-actions-item">
+                    <button class="fa fa-trash" size="mini" data-menuid="{{item.menu_ID}}" data-icon="{{item.icon}}" bindtap="deleteBoothMenu" style="font-size: 30rpx;"></button>
+                </view>
+            </view>
+		</view>
+		<block wx:if="{{boothMenuList.length == 0}}">
+			<view class="page__bd">
+				<view class="weui-loadmore weui-loadmore_line">
+					<text class="weui-loadmore__tips">No data</text>
+				</view>
+			</view>
+		</block>
+    </view> 
+</view>

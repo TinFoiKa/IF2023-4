@@ -1,0 +1,65 @@
+<!--pages/PTSACashier/PTSACashier.wxml-->
+<view class="content">
+    <my-top backflag="true" hideSysBtn="true" toptitle='PTSA CASHIER'></my-top>
+    <view style="background-color: #fff;padding-left: 40rpx;padding-top: 30rpx;">
+        <text class="user-motto">PTSA CASHIER:</text>
+    </view>
+    <view class="uni-list">
+        <view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="toScan">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Scan</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+        <view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="toBooth">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Booth</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+        <view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="toRedemptionEB">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Redemption Eagle Buck</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="expBuyEBPaymentRecord">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Export Purchase Eagle Buck Payment Records Excel</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="expLuckyDrawPaymentRecord">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Export Lucky Draw payment records Excel</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="expDunkTankPaymentRecord">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Export Dunk Tank payment records Excel</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell">
+            <view class="uni-media-list" bindtap="expBoothIncomeTotalRecord">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Export Booth EB Revenue Summary Excel</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

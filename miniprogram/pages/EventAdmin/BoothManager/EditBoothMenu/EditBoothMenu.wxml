@@ -1,0 +1,21 @@
+<!--pages/EventAdmin/BoothManager/EditBoothMenu/EditBoothMenu.wxml-->
+<view class="container">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Booth Menu'></my-top>
+    <form class="login-form">
+        <view class="img-group">
+            <button bindtap="selectImage" style="height: 300rpx;width: 300rpx;">
+                <image class="avar-img" src="{{menuIcon}}" style="margin-left: -25px;margin-top: -8px;"></image>
+            </button>
+        </view>
+        <view class="name-form">
+            <view class="input-group">
+                <image class="input-img" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/rename.png"></image>
+                <input class="input-label" model:value="{{menuName}}" maxlength="200" placeholder="Menu Name" />
+            </view>
+        </view>
+		<view class="confirm-btn" bindtap="submit" style="background-color: #1a61bd;">
+			<text>Submit</text>
+		</view>
+        <view style="font-size: 10pt;color: red;text-align: center;margin: 50rpx 20%;">{{errorMsg}}</view>
+    </form>
+</view>

@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "navigationStyle": "custom",
+    "navigationBarTitleText":"个人",
+    "usingComponents": {
+        "my-top":"../../../../components/my-top/my-top"  
+    }
+}

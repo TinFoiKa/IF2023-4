@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top toptitle='My Account' showSysBtn="true"></my-top>
+	<viie class="container">
+		<view class="userinfo">
+			<view>
+				<image class="userinfo-avatar" src="{{userInfo.avatar}}" mode="scaleToFill" style="border-radius: 50%;"></image>
+			</view>
+			<view class="inforight">
+				<text class="userinfo-nickname" style="font-family: arial-bold;">{{userInfo.username}}</text>
+				<text class="infoid" style="font-family: Arial-Regular;">IFID：{{userInfo.if_ID}}</text>
+			</view>
+			<view class="inforight" style="width: 40%;">
+				<view class="logout" bindtap="logout" style="width: 180rpx;margin-left: -18px;">LOGOUT</view>
+				<view style="width: 100%;" bindtap="ShowMyQR">
+					<view style="color: #8d605d;font-size: 35rpx;display: inline-block;vertical-align: middle;font-family: Arial-Regular;">IFQR</view>
+					<image style="width:72rpx;height:36rpx;display: inline-block;vertical-align: middle;margin-left: 10px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/IFQR.png"></image>
+				</view>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="display: flex;justify-content: space-between;">
+				<view style="text-align: left;margin-left: 30rpx;font-size: 32rpx;margin-top: 10rpx;font-family: jiansong-bold;font-weight:500;">My Bracelet(s)</view>
+				<view style="text-align: right;margin-right: 30rpx;">
+					<view class="showMoreBtn" bindtap="showMore" data-type="4">SHOW MORE</view>
+				</view>
+			</view>
+			<view class="credits-content" style="color: #8d605d;min-height: 160rpx;font-family: jiansong-regular;">
+				<view class="notice-content" style="text-align: center;font-size: 35rpx;">I have <text style="color: #e77b0b;font-size: 50rpx;font-weight: bold;margin: 0rpx 10rpx;font-family: arial-bold;"> {{fmt.formatNumber(braceletNumber, 0)}} </text> bracelet(s)</view>
+				<view class="notice-content" style="text-align: center;font-size: 35rpx;">bound to my account.</view>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="display: flex;justify-content: space-between;">
+				<view style="text-align: left;margin-left: 30rpx;font-size: 32rpx;margin-top: 10rpx;font-family: jiansong-bold;font-weight: 500;">My Eagle Buck(s)</view>
+				<view style="text-align: right;margin-right: 30rpx;">
+					<view class="showMoreBtn" bindtap="showMore" data-type="1">SHOW MORE</view>
+				</view>
+			</view>
+			<view class="credits-content" style="color: #8d605d;min-height: 160rpx;line-height: 160rpx;font-family: jiansong-regular;">
+				<view class="notice-content" style="text-align: center;font-size: 35rpx;">Account Balance: <text style="color: #e77b0b;font-size: 50rpx;font-weight: bold;margin: 0rpx 10rpx;font-family: arial-bold;"> {{fmt.formatNumber(userInfo.eB, 0)}} </text> Bucks</view>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="display: flex;justify-content: space-between;">
+				<view style="text-align: left;margin-left: 30rpx;font-size: 32rpx;margin-top: 10rpx;font-family: jiansong-bold;font-weight: 500;">My Lucky Draw Payment(s)</view>
+				<view style="text-align: right;margin-right: 30rpx;">
+					<view class="showMoreBtn" bindtap="showMore" data-type="3">SHOW MORE
+					</view>
+				</view>
+			</view>
+			<view class="credits-content" style="color: #8d605d;min-height: 160rpx;line-height: 160rpx;font-family: jiansong-regular;">
+				<view class="notice-content" style="text-align: center;font-size: 35rpx;">Total Payment: <text style="color: #e77b0b;font-size: 50rpx;font-weight: bold;margin: 0rpx 10rpx;font-family: arial-bold;"> {{fmt.formatNumber(luckyDrawTotalPayment, 0)}} </text> RMB</view>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="display: flex;justify-content: space-between;">
+				<view style="text-align: left;margin-left: 30rpx;font-size: 32rpx;margin-top: 10rpx;font-family: jiansong-bold;font-weight: 500;">My Dunk Tank Fundraising</view>
+				<view style="text-align: right;margin-right: 30rpx;">
+					<view class="showMoreBtn" bindtap="showMore" data-type="2">SHOW MORE</view>
+				</view>
+			</view>
+			<view class="credits-content" style="color: #8d605d;min-height: 160rpx;line-height: 160rpx;font-family: jiansong-regular;">
+				<view class="notice-content" style="text-align: center;font-size: 35rpx;">Total Payment: <text style="color: #e77b0b;font-size: 50rpx;font-weight: bold;margin: 0rpx 10rpx;font-family: arial-bold;"> {{fmt.formatNumber(dunkTankTotalPayment, 0)}} </text> RMB</view>
+			</view>
+		</view>
+
+		<view style="width: 90%;height: 40rpx;margin-bottom: 30rpx;">
+			<image class="img-style" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/bottom.png"></image>
+		</view>
+	</viie>
+</view>

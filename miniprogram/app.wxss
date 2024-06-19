@@ -1,27 +1,143 @@
 /**app.wxss**/
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-} 
-
-button {
-  background: initial;
-}
-
-button:focus{
-  outline: 0;
-}
-
-button::after{
-  border: none;
-}
-
+@import 'style/weui.wxss';
 
 page {
-  background: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    height: 100%;
+	/* background: #f1f1f1; */
+	background: #96e2f3;
+  }
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 200rpx 0; */
+    box-sizing: border-box;
+  } 
+  .img-style{
+    width: 100%;
+    height: 100%;
+  }
+  .toptitle {
+    width: 100%;
+    height: 250rpx;
+  } 
+  .title{
+  position: absolute;
+  margin-top: -158rpx; 
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  }     
+  .page-title{
+  margin-top: 80rpx;
+  }
+  .small{
+    width: 60rpx;
+    height: 60rpx;
+    margin: 0 30rpx;
+  }
+  .en-select{
+    display: flex;
+    position: absolute;
+    margin-top: -86rpx;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  @import "resource/js/font-awesome.wxss";
+  @import "resource/js/font-awesome_small.wxss";
+
+
+  .credits{
+	width: 90%;
+	background-color: #EDF3F7;
+	margin: 10rpx 0rpx;
+	border-radius: 15rpx;
 }
+.credits-title{
+	text-align: center;
+	margin-top: 5rpx;
+	color: #8D605D;
+	font-size: 40rpx;
+}
+.credits-title2{
+	text-align: center;
+	margin-top: 5rpx;
+	color: #8D605D;
+	font-size: 32rpx;
+}
+.notice{
+	width: 95%;
+	margin: 10rpx 2.5%;
+	border-radius: 15rpx;
+	background-color: #FFFFFF;
+}
+.notice-content{
+	font-size: 25rpx;
+	word-wrap: break-word;
+	margin: 10rpx 10rpx;
+	color: #8D605D;
+}
+.credits-content{
+	width: 95%;
+	min-height: 200rpx;
+	margin: 10rpx 2.5%;
+	border-radius: 15rpx;
+	background-color: #FFFFFF;
+}
+.img_mascot_style{
+	height: 150rpx;
+	width: 150rpx;
+	z-index: 1;
+}
+.img_flower_style{
+	height: 100rpx;
+	width: 400rpx;
+}
+.img_left_top{
+	margin-top: -80rpx;
+	margin-left: -35rpx;
+}
+.img_right_top{
+	margin-top: -70rpx;
+	margin-right: -40rpx;
+	display: flex;
+	justify-content: flex-end;
+}
+.img_center_top{
+	display: flex;
+	justify-content: center;
+}
+
+
+@font-face {
+    font-family: jiansong-regular;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/jiansong-Regular.ttf?sign=2aa44199d2bcfde061442d2ad3c6d391&t=1695376298");
+}
+
+@font-face {
+    font-family: jiansong-bold;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/jiansong-bold.ttf?sign=8202dc2ba0baa75f88c8b308f71395d2&t=1695376337");
+}
+
+@font-face {
+    font-family: arial-bold;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/arial-blod.ttf?sign=c3694efd3784374b329e140bc4239206&t=1695376356");
+}
+
+@font-face {
+    font-family: Arial-Regular;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/Arial-Regular.ttf?sign=3822ea81f90f04fe5846286af7399a22&t=1695376373");
+}
+
+@font-face {
+    font-family: MARI-DAVID-BOLD;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/MARI-DAVID-BOLD.ttf?sign=7fcbe75a69c0de4b89649cf0d37a0d86&t=1695376393");
+}
+
+@font-face {
+    font-family: YouSheBiaoTiHei;
+    src: url("https://7361-sas-2023if-6gnixjwic1713458-1300310271.tcb.qcloud.la/font/YouSheBiaoTiHei.ttf?sign=052a7fd92fd577c34ace9fc9558837ee&t=1695376415");
+}
+

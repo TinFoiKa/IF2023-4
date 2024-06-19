@@ -1,0 +1,23 @@
+<!--pages/BoothLists/Sponsors/Sponsors.wxml-->
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view style="background-color: #fff;padding-left: 40rpx;padding-top: 30rpx;">
+        <text class="user-motto">Sponsors:</text>
+    </view>
+    <view class="uni-list">
+        <view class="uni-list-cell" wx:for="{{sponsorsList}}" wx:key="this">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">{{item.sponsor_name}}</view>
+                </view>
+            </view>
+		</view>
+		<block wx:if="{{sponsorsList.length == 0}}">
+			<view class="page__bd">
+				<view class="weui-loadmore weui-loadmore_line">
+					<text class="weui-loadmore__tips">No data</text>
+				</view>
+			</view>
+		</block>
+    </view>
+</view>

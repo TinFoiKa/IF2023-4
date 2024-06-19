@@ -1,0 +1,38 @@
+<!--pages/My/MyDunkTankPaymentShowMore/MyDunkTankPaymentShowMore.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">My Dunk Tank Payment Records</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width: 80%;justify-content: flex-end;">
+                        Total Amount in RMB: <text style="font-size: 50rpx;color: red;margin: 0rpx 10rpx;">{{fmt.formatNumber(dunkTankTotalPayment, 0)}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width: 5%;">No.</view>
+                    <view class="card-actions-item" style="width: 8%;">Payment (RMB)</view>
+                    <view class="card-actions-item" style="width: 25%;">Candidates</view>
+                    <view class="card-actions-item" style="width: 25%;">Time</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{recordList}}" wx:index="index" wx:key="this" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width: 5%;">{{index+1}}</view>
+                    <view class="card-actions-item" style="width: 8%;">{{fmt.formatNumber(item.amount, 0)}}</view>
+                    <view class="card-actions-item" style="width: 25%;">{{item.guyName}}</view>
+                    <view class="card-actions-item" style="width: 25%;">{{fmt.formatDate_MMddHHmm(item.datetime)}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

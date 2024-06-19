@@ -1,0 +1,72 @@
+<!--pages/LuckyDraw/LuckyDraw.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+
+    <view class="uni-list">
+        <view class="uni-body">
+            <view class="uni-section-header">
+                <view class="uni-section-line"></view>
+                <view class="uni-section-header__content">Prizes & Winners</view>
+            </view>
+        </view>
+        <view class="uni-list-cell" wx:for="{{prizeList}}" wx:key="this">
+            <view class="uni-media-list">
+				<view style="position: relative;width: 200rpx;height: 200rpx;">
+					<image wx:if="{{item.win_open_id==openId}}" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/win.png" style="width: 80rpx;height: 80rpx;position: absolute;top: 0;left: 0;z-index: 2;"></image>
+                	<block wx:if="{{item.img_url != null && item.img_url != ''}}">
+						<image class="uni-media-list-logo" mode="aspectFit" src="{{item.img_url}}" bindtap="showImage" data-url="{{item.img_url}}" style="width: 100%;height: 100%;margin-right: 0rpx;position: relative;z-index: 1;"></image>
+					</block>
+				</view>
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">{{item.prize_name}}</view>
+                    <view class="uni-media-list-text-bottom">
+                        <view class="uni-media-list-text-bottom">￥：{{item.prize_value}}</view>
+                    </view>
+				</view>
+				<view style="width:30%">
+					<block wx:if="{{item.ticket_ID == 0}}">
+						<block wx:if="{{isBoothManager }}">
+							<block wx:if="{{activityEvent.startLottery_state == 0}}">
+								<text style="color: #c9c8c8;">The event administrator did not activate the lottery function</text>
+							</block>
+							<block wx:else>
+								<image bindtap="toLottery" data-prizeid="{{item.prize_ID}}" wx:if="{{isBoothManager }}" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/startDraw.jpg" style="width: 160rpx;height: 160rpx;margin-right: 30rpx;"></image>
+							</block>
+						</block>
+						<block wx:else>
+							<text style="color: #c9c8c8;">Wait for the draw</text>
+						</block>
+					</block>
+					<block wx:else>
+						<view style="margin-right: 30rpx;padding-top: 50rpx;">Winner : {{item.if_ID}}<text>\r</text>{{item.ticket_no}}</view>
+					</block>
+				</view>
+            </view>
+        </view>
+        <view style="display: flex;flex-direction: column;margin-top:30rpx">
+            <text class="user-motto" style="font-size: 34rpx;">My Lucky Draw Payments</text>
+            <text class="user-content" style="color:#000;">I have already paid: <text style="color:red;font-size: 50rpx;">{{fmt.formatNumber(paidMoney, 0)}}</text> RMB</text>
+		</view>
+		
+		<view style="margin-top: 60rpx;display: flex;justify-content: center;">
+			<view style="margin-top: -30rpx;margin-right: 20rpx;">
+				<image mode="widthFix" style="width: 200rpx;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_5.png"></image>
+			</view>
+			<view>
+				<button class="dk-btn" bindtap="draw" wx:if="{{luckyDraw.isOpen == 0}}">Buy Tickets</button>
+        		<button class="dk-btn" disabled="true" wx:if="{{luckyDraw.isOpen == 1}}">Buy Tickets</button>
+				<button class="dk-btn" bindtap="tutorial">Tutorial</button>
+			</view>
+		</view>
+        <view class="uni-section-header">
+            <view class="uni-section-line"></view>
+            <view class="uni-section-header__content">My Tickets:</view>
+        </view>
+		<view class="uni-list-cell" style="justify-content:start;flex-wrap: wrap;width: 100%;font-size: 30rpx;">
+            <view class="uni-media-list" wx:for="{{myTicketList}}" wx:key="this" style="width:auto;">
+				<text>{{item.ticket_no}}</text>
+            </view>
+        </view>
+    </view>
+</view>

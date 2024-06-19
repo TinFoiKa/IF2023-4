@@ -1,61 +1,126 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/goods-list/index",
-    "pages/examples/index",
-    "pages/user-center/index",
-    "pages/exampleDetail/index",
-    "pages/deployService/index",
-    "pages/updateRecord/index",
-    "pages/updateRecordResult/index",
-    "pages/updateRecordSuccess/index",
-    "pages/sumRecord/index",
-    "pages/sumRecordResult/index",
-    "pages/web/index",
-    "pages/cloudbaseModuleDetail/index",
-    "pages/cloudbaseModuleInstallTips/index",
-    "pages/cloudbaseModuleGuide/index",
-    "pages/business/index"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2",
-  "lazyCodeLoading": "requiredComponents",
-  "tabBar": {
-    "color": "#A2A9B0",
-    "selectedColor": "#07C160",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "快速开始",
-        "iconPath": "images/icons/home.png",
-        "selectedIconPath": "images/icons/home-active.png"
-      },
-      {
-        "pagePath": "pages/examples/index",
-        "text": "基础能力",
-        "iconPath": "images/icons/examples.png",
-        "selectedIconPath": "images/icons/examples-active.png"
-      },
-      {
-        "pagePath": "pages/business/index",
-        "text": "业务示例",
-        "iconPath": "images/icons/business.png",
-        "selectedIconPath": "images/icons/business-active.png"
-      },
-      {
-        "pagePath": "pages/user-center/index",
-        "text": "我",
-        "iconPath": "images/icons/usercenter.png",
-        "selectedIconPath": "images/icons/usercenter-active.png"
-      }
-    ]
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/wechatLogin/wechatLogin",
+        "pages/Tutorial/Tutorial",
+        "pages/Home/Home",
+        "pages/My/My",
+        "pages/EB/EB",
+        "pages/BoothLists/BoothLists",
+        "pages/DTLD/DTLD",
+        "pages/EB/MyQR/MyQR",
+        "pages/EB/QRs/QRs",
+        "pages/EB/QRs/showQR/showQR",
+        "pages/BoothLists/Foods/Foods",
+        "pages/BoothLists/Games/Games",
+        "pages/BoothLists/Shows/Shows",
+        "pages/BoothLists/Sponsors/Sponsors",
+        "pages/BoothLists/VendorsList/VendorsList",
+        "pages/BoothLists/Foods/foodMenu/foodMenu",
+        "pages/event/event",
+        "pages/BoothMgr/BoothMgr",
+        "pages/PTSACashier/PTSACashier",
+        "pages/EventAdmin/EventAdmin",
+        "pages/EventAdmin/BoothManager/BoothManager",
+        "pages/EventAdmin/BoothManager/ImportBooth/ImportBooth",
+        "pages/EventAdmin/BoothManager/ViewBooth/ViewBooth",
+        "pages/EventAdmin/BoothManager/ImportBoothMenu/ImportBoothMenu",
+        "pages/EventAdmin/BoothManager/ViewBoothMenu/ViewBoothMenu",
+        "pages/EventAdmin/BoothManager/EditBooth/EditBooth",
+        "pages/EventAdmin/BoothManager/EditBoothMenu/EditBoothMenu",
+        "pages/EventAdmin/BoothManager/ImportSponsor/ImportSponsor",
+        "pages/EventAdmin/BoothManager/ViewSponsor/ViewSponsor",
+        "pages/EventAdmin/BoothManager/EditSponsor/EditSponsor",
+        "pages/EventAdmin/BoothManager/ViewSponsorDetail/ViewSponsorDetail",
+        "pages/EventAdmin/BoothManager/EditBoothMgr/EditBoothMgr",
+        "pages/EventAdmin/BoothAuthorization/BoothAuthorization",
+        "pages/EventAdmin/EventSetting/EventSetting",
+        "pages/EventAdmin/BoothManager/ViewEagleBuck/ViewEagleBuck",
+        "pages/EventAdmin/BoothManager/EditEagleBuck/EditEagleBuck",
+        "pages/EB/Buy/Buy",
+        "pages/EB/Transfer/Transfer",
+        "pages/EB/AddBracelet/AddBracelet",
+        "pages/My/MyEagleBuckShowMore/MyEagleBuckShowMore",
+        "pages/EventAdmin/Announcements/Announcements",
+        "pages/EventAdmin/Announcements/EditAnnouncement/EditAnnouncement",
+        "pages/Home/EditFeedbacks/EditFeedbacks",
+        "pages/EventAdmin/Feedbacks/Feedbacks",
+        "pages/EventAdmin/Feedbacks/ViewFeedbacks/ViewFeedbacks",
+        "pages/DunkTank/DunkTank",
+        "pages/LuckyDraw/LuckyDraw",
+        "pages/EventAdmin/BoothManager/ImportDunkTank/ImportDunkTank",
+        "pages/EventAdmin/BoothManager/ViewDunkTank/ViewDunkTank",
+        "pages/EventAdmin/BoothManager/EditDunkTank/EditDunkTank",
+        "pages/EventAdmin/BoothManager/EditDunkTankMgr/EditDunkTankMgr",
+        "pages/pay/pay",
+        "pages/My/MyDunkTankPaymentShowMore/MyDunkTankPaymentShowMore",
+        "pages/EventAdmin/BoothManager/ViewLuckyDrawList/ViewLuckyDrawList",
+        "pages/EventAdmin/BoothManager/EditLuckyDraw/EditLuckyDraw",
+        "pages/EventAdmin/BoothManager/ViewLuckyDraw/ViewLuckyDraw",
+        "pages/EventAdmin/BoothManager/EditLuckyDrawPrize/EditLuckyDrawPrize",
+        "pages/EventAdmin/BoothManager/EditLuckyDrawMgr/EditLuckyDrawMgr",
+        "pages/EventAdmin/BoothManager/ViewLuckyDrawCommodity/ViewLuckyDrawCommodity",
+        "pages/EventAdmin/BoothManager/ViewLuckyDrawCommodity/EditLuckyDrawCommodity/EditLuckyDrawCommodity",
+        "pages/LuckyDraw/Draw/Draw",
+        "pages/My/MyLuckyDrawPaymentShowMore/MyLuckyDrawPaymentShowMore",
+        "pages/PTSACashier/ViewBoothQRCode/ViewBoothQRCode",
+        "pages/EB/ReturnEB/ReturnEB",
+        "pages/EventAdmin/BoothAuthorization/ImportBoothMgr/ImportBoothMgr",
+        "pages/EventAdmin/BoothManager/EditBoothShows/EditBoothShows",
+        "pages/EventAdmin/BoothManager/ImportLuckyDrawPrize/ImportLuckyDrawPrize",
+        "pages/LuckyDraw/Lottery/Lottery",
+        "pages/EventAdmin/DisableAccountList/DisableAccountList",
+        "pages/EventAdmin/DisableFunction/DisableFunction",
+        "pages/PTSACashier/Scan/Scan",
+        "pages/PTSACashier/Booth/Booth",
+        "pages/PTSACashier/RedemptionEB/RedemptionEB"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#DAD9F3",
+        "navigationBarTitleText": "Sas",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#1296db",
+        "backgroundColor": "#f6f6f7",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/Home/Home",
+                "text": "",
+                "iconPath": "images/home/home.png",
+                "selectedIconPath": "images/home/homes.png"
+            },
+            {
+                "pagePath": "pages/My/My",
+                "text": "",
+                "iconPath": "images/my/my.png",
+                "selectedIconPath": "images/my/mys.png"
+            },
+            {
+                "pagePath": "pages/EB/EB",
+                "text": "",
+                "iconPath": "images/eb/eb.png",
+                "selectedIconPath": "images/eb/ebs.png"
+            },
+            {
+                "pagePath": "pages/BoothLists/BoothLists",
+                "text": "",
+                "iconPath": "images/booth/booth.png",
+                "selectedIconPath": "images/booth/booths.png"
+            },
+            {
+                "pagePath": "pages/DTLD/DTLD",
+                "text": "",
+                "iconPath": "images/dk/dk.png",
+                "selectedIconPath": "images/dk/dks.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
 }

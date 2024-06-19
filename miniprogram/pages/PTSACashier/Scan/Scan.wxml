@@ -1,0 +1,60 @@
+<!--pages/PTSACashier/Scan/Scan.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='PTSA CASHIER'></my-top>
+    <view class="container">
+        <view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+			<view style="margin-top: 10rpx;">Scan a Visitor’s IFQR to deduct the refunded Eagle Buck(s) from the Visitor’s account. </view>
+		</view>
+		<view class="img-group" style="margin-top: 50rpx;">
+            <image class="avar-img" bindtap="scan" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/Scan.png" style="width: 284rpx;height: 228rpx;margin: 10px 0px;"></image>
+        </view>
+    </view>
+</view>
+
+<page-container show="{{isShowPaymentRecord}}" position="right">
+	<view class="content">
+		<my-top backflag="true" homeflag="true" toptitle=''></my-top>
+		<scroll-view scroll-y="true" style="height: {{xheight}}">
+			<view class="uni-card-ul uni-card--shadow uni-card--border">
+				<view class="uni-card__content" style="padding: 10px;">
+					<view class="uni-body">
+						<view class="uni-section-header">
+							<view class="uni-section-line"></view>
+							<view class="uni-section-header__content">Eagle Bucks Purchase Records</view>
+						</view>
+					</view>
+					<view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+						<view style="margin-top: 10rpx;">Alias: {{userInfo.username}}</view>
+						<view style="margin-top: 10rpx;">IFID: {{userInfo.if_ID}}</view>
+					</view>
+					<view class="uni-card__actions" style="font-size: 30rpx;">
+						<view class="card-actions">
+							<view class="card-actions-item">Buck(s)</view>
+							<view class="card-actions-item">Amount(RMB)</view>
+							<view class="card-actions-item" style="margin-left: 30rpx;">Time</view>
+							<view class="card-actions-item">Operate</view>
+						</view>
+					</view>
+					<view class="uni-card__actions" wx:for="{{paymentRecordList}}" wx:key="this">
+						<view class="card-actions" style="font-size: 30rpx;">
+							<view class="card-actions-item">{{fmt.formatNumber(item.eb_number, 0)}}</view>
+							<view class="card-actions-item">{{fmt.formatNumber(item.amount, 0)}}</view>
+							<view class="card-actions-item">{{fmt.formatDate_MMddHHmm(item.datetime)}}</view>
+							<view class="card-actions-item">
+								<button class="fa fa-trash" size="mini" data-id="{{item.ID}}" data-eb="{{item.eb_number}}" data-amount="{{item.amount}}" bindtap="deleteRecord" style="font-size: 30rpx;"></button>
+							</view>
+						</view>
+					</view>
+					<block wx:if="{{paymentRecordList.length == 0}}">
+						<view class="page__bd">
+							<view class="weui-loadmore weui-loadmore_line">
+								<text class="weui-loadmore__tips">No data</text>
+							</view>
+						</view>
+					</block>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</page-container>

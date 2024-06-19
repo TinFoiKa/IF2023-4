@@ -1,0 +1,44 @@
+<!--pages/EventAdmin/BoothManager/EditDunkTank/EditDunkTank.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Dunk Tank'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true" style="height: {{xheight}}">
+            <form bindsubmit="submitForm">
+                <view class="uni-section-content">
+                    <view class="uni-forms">
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Full Name</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="fullName" value="{{dunkTank.dunked_guy}}" maxlength="200" style="width: 100%;" placeholder="Please input the Full Name" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">dunked guy photo</view>
+							<view wx:if="{{headIconFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{headIconFileName}}</view>
+                                <view wx:if="{{headIconProgress}}" style="margin-left: 10px;">{{headIconProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeHeadIcon" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadHeadIcon" style="margin-left: 30rpx;margin-right: auto;background-color: rgb(26, 97, 189)">upload</button>
+                        </view>
+                        <view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Introduction:</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="introduction" value="{{dunkTank.dunked_Introduction}}" placeholder="please input introduction" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Target</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="target" type="digit" value="{{dunkTank.goal_rmb}}" maxlength="20" style="width: 100%;" placeholder="please input Target" />
+                            </view>
+						</view>
+                        <view class="button-group">
+                            <button type="primary" form-type="submit" style="width: 40%;background-color: #1a61bd;">Save</button>
+                        </view>
+                    </view>
+                </view>
+            </form>
+        </scroll-view>
+    </view>
+</view>

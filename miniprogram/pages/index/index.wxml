@@ -1,58 +1,84 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="main">
-    <view class="title font_title_1">快速开始</view>
-    <view class="sub_title">
-      欢迎使用云开发！本页将带你了解如何使用云开发提供的能力快速开发小程序。
+<page-meta root-font-size="system"/>
+<view class="content">
+    <view class="container" style="background-color: #88ebf4;">
+		<view style="width: 100%;height: {{windowWidth * 183 / 375}}px;top: 0px;">
+			<image mode="widthFix" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/index_top.png" style="width: 100%;height: 100%;"></image>
+		</view>
+		<scroll-view scroll-y="true" style="height: {{height}}px;color: #8D605D;">
+			<view style="color: #8D605D;">
+				<view style="font-size: 30rpx;text-align: center;margin-top: 0rpx;">
+					In support of our IF theme and striving for an environmentally-friendlier world, 
+				</view>
+				<view style="font-size: 30rpx;text-align: center;">
+					a group of students together with the Puxi PTSA 
+				</view>
+				<view style="font-size: 30rpx;text-align: center;">
+					proudly bring to you the 
+				</view>
+				<view style="font-size: 30rpx;text-align: center;">
+					SAS IF Mini Program.
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;">
+					Dear Mini Program User, 
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					By registering, signing-in and using the SAS IF Mini Program, you are agreeing to the collection of your WeChat Account Avatar, your Alias, your cellphone number, information linked to your device and your operation log.
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					This SAS IF Mini Program is created exclusively for use ON SITE at the SAS Puxi Campus during and the International Fair on Saturday, 14th October 2023. 
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					To gain entry into the IF, each person will need to either present a valid SAS ID or an Entry Bracelet that was purchased in advance.  Entry Bracelets will not be sold on the day.  
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					DO NOT register and/or sign-in and/or use the SAS IF Mini Program if you have no means of access to the International Fair.  
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					We regret to inform you that once the transaction is completed, money transferred and/or spent on Eagle Bucks; and/or on games (such as the Dunk Tank and/or the Lucky Draw); is NON REFUNDABLE.  This is applicable regardless of whether you cannot attend the IF and/or you are unable to use all the Eagle Bucks.
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					To all the fortunate Lucky Draw winners - kindly note that for operational reasons, the Lucky Draws prizes can only be presented to you in person on site during the IF.  If you are not a member of the PTSA or an invited guest, you will not be able to claim your prize.
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					Warning: The SAS Puxi PTSA does not provide supervision and cannot accept  responsibility for accidents and/or injuries from the use of the facilities. Games and/or related use of play areas and equipment are at your own risk.  Parents are advised to accompany and monitor their children at all times while the latter are using school facilities and participating games. Parents are responsible for ensuring the safety of their children.
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 20rpx;text-indent: 70rpx;">
+					In clicking on the the “Agree” button, you are agreeing to the register to use the SAS IF Mini Program account as well as to the terms and conditions related to the use of this  program and service.  Thank you for your understanding and enjoy!
+				</view>
+				<view style="font-size: 30rpx;text-align: left;margin: 0rpx 50rpx;margin-top: 60rpx;">
+					SAS PTSA Puxi Event Management Team
+				</view>
+			</view>
+		</scroll-view>
+		<view style="width: 100%;height: {{windowWidth * 197 / 375}}px;">
+			<view style="width: 100%;position: absolute;margin-top: 70rpx;">
+				<view>
+					<button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style="width: 50%;font-size: 50rpx;border-radius: 20rpx;">Agree</button>
+				</view>
+				<view style="width: 100%;margin-top: 20rpx;margin-bottom: 0rpx;">
+					<button type="default" bindtap="exit" style="width: 50%;font-size: 50rpx;border-radius: 20rpx;">No thanks</button>
+				</view>
+			</view>
+			<image mode="widthFix" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/index_bottom.png" style="width: 100%;height: 100%;"></image>
+		</view>
     </view>
-    <view class="ability_container">
-      <view class="ability_title">你将学习到</view>
-      <view class="ability_item" wx:for="{{ knowledgePoints }}" wx:for-item="point" wx:key="id">
-        {{ point.title }}
-      </view>
-    </view>
+</view>
 
-    <view class="title font_title_2">5分钟上手教程</view>
-    <view class="sub_title">
-      我们将会使用常用的云开发能力，快速实现一个简单的商品列表页面。无需购买服务器，即可快速开发出后台服务、读取数据库、存取文件、调用微信开放服务。页面最终效果如下图所示。
-    </view>
-    <view class="image_container">
-      <image src="../../images/list-database.png" mode="widthFix" />
-    </view>
-
-    <view class="btn-view-demo-page with-margin" bind:tap="gotoGoodsListPage">查看页面</view>
-
-    <view class="seperator" />
-    <view class="step_container" wx:for="{{ steps }}" wx:key="id" wx:for-item="step">
-      <view id="step_{{ step.id }}" data-step="{{ step.id }}" class="step_title">
-        <view class="step_id_container">
-          <view class="step_id_mark">NO.</view>
-          <view class="step_id_content">0{{ step.id }}</view>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+    <view aria-role="dialog" aria-modal="true" class="fadeIn" wx:if="{{iosDialog}}">
+        <view class="weui-mask"></view>
+        <view class="weui-dialog">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">+86 {{phoneNumber}}</strong></view>
+            <view class="weui-dialog__bd" style="text-align: left;text-indent: 70rpx;">
+				<text>If this is not the phone number you are currently using we will not be able to contact you. </text>
+			</view>
+			<view class="weui-dialog__bd" style="text-align: left;text-indent: 70rpx;">
+				<text>Are you sure you will submit this phone number?</text>
+			</view>
+            <view class="weui-dialog__ft">
+                <button aria-role="button" class="weui-dialog__btn weui-dialog__btn_default" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">Change</button>
+                <view aria-role="button" class="weui-dialog__btn weui-dialog__btn_primary" bindtap="confirmPhone">Yes</view>
+            </view>
         </view>
-        <view class="font_title_2">{{ step.title }}</view>
-      </view>
-      <view class="step_content">
-        <block wx:for="{{ step.contents }}" wx:for-item="item" wx:key="index">
-          <view wx:if="{{ item.type === 'text' }}" class="text_zone">
-            <rich-text nodes="<p style='line-height: 26px;'>{{ item.content }}</p>" />
-          </view>
-          <view wx:if="{{ item.type === 'code' }}" class="code_zone">
-            <image class="btn-copy" data-code="{{ item.content }}" bind:tap="copyCode" src="../../images/icons/copy.png" />
-            <rich-text nodes="<pre style='overflow: scroll;'>{{ item.content }}</pre>" />
-          </view>
-          <view wx:if="{{ item.type === 'image' }}" class="image_zone">
-            <image src="../../images/{{ item.content }}" mode="widthFix" />
-          </view>
-        </block>
-      </view>
-      <view wx:if="{{ step.showJumpButton }}" class="btn-view-demo-page" bind:tap="gotoGoodsListPage">查看页面</view>
-      <view class="seperator" />
     </view>
-
-    <view class="bottom-tip">
-      至此，我们完成了一个带分享功能的小程序，利用了云开发的云函数、云数据库、云存储等能力，无需服务器即可快速完成较为复杂的功能。
-    </view>
-    <view  class="bottom-tip">此外，云开发还提供了云模板、云后台、云托管等更多高级能力，可点击下方按钮前往查看。</view>
-    <view class="button" bind:tap="discoverCloud">探索云开发更多功能</view>
-  </view>
 </view>

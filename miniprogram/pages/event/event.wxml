@@ -1,0 +1,48 @@
+<!--pages/event/event.wxml-->
+<view class="content">
+    <my-top backflag="true" hideSysBtn="true" toptitle='Event Admin System'></my-top>
+    <view style="background-color: #fff;padding-left: 40rpx;padding-top: 30rpx;">
+        <text class="user-motto">Event Admin System:</text>
+    </view>
+    <view class="uni-list">
+        <view class="uni-list-cell">
+            <view class="uni-media-list" wx:if="{{isBoothManager }}" bindtap="toBoothManager">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Booth Manager</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+			<view class="uni-media-list" wx:else>
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top" style="color:rgb(214, 214, 214);">Booth Manager</view>
+                </view>
+            </view>
+        </view>
+        <view class="uni-list-cell">
+            <view class="uni-media-list" wx:if="{{userInfo.role == 2 || userInfo.role == 3}}" bindtap="toCashier">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">PTSA Cashier</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+			<view class="uni-media-list" wx:else>
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top" style="color:rgb(214, 214, 214);">PTSA Cashier</view>
+                </view>
+            </view>
+        </view>
+        <view class="uni-list-cell">
+            <view class="uni-media-list" wx:if="{{userInfo.role == 1 || userInfo.role == 3}}" bindtap="toEventAdmin">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Event Admin</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+			<view class="uni-media-list" wx:else>
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top" style="color:rgb(214, 214, 214);">Event Admin</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

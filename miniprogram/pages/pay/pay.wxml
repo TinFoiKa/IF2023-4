@@ -1,0 +1,20 @@
+<!--pages/pay/pay.wxml-->
+<view class="content">
+	<my-top backflag="true" toptitle=''></my-top>
+	<view class='page_box' catchtap='hindKeyboard'>
+		<view class='input_view' catchtap='hindKeyboard'>
+			<view class='input_box' catchtap='showKeyboard'>
+				<text class='input_label'>￥</text>
+				<text class='input_content'>{{content}}</text>
+				<view class='className'></view>
+			</view>
+			<text class='pay' catchtap='payment' style="background-color: #E77B0B;">Pay</text>
+		</view>
+		<view class='keyboard {{keyShow&&"hind_box"}}'>
+			<view class='complete'>OK</view>
+			<view class='key_box'>
+				<text class='keys {{index%3==0&&"border0"}} {{(index==9||index==11)&&"bg_color"}}' wx:for='{{KeyboardKeys}}' wx:key='this' catchtap='keyTap' data-keys='{{item}}'>{{item}}</text>
+			</view>
+		</view>
+	</view>
+</view>

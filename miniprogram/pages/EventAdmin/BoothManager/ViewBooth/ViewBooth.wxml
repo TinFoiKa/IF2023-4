@@ -1,0 +1,68 @@
+<!--pages/EventAdmin/BoothManager/ViewBooth/ViewBooth.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='{{boothName}}'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">{{boothName}}</view>
+                </view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no">
+						<button class="fa fa-plus" type="primary" size="mini" bindtap="addBooth" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+					</view>
+				</view>
+            </view>
+			<block wx:if="{{boothType == 1 || boothType == 2}}">
+				<view class="uni-card__actions">
+					<view class="card-actions">
+						<view class="card-actions-item">Booth No</view>
+						<view class="card-actions-item" style="width: 50%;">Booth Name</view>
+						<view class="card-actions-item" style="width: 35%;">Operate</view>
+					</view>
+				</view>
+				<view class="uni-card__actions" wx:for="{{boothList}}" wx:key="this">
+					<view class="card-actions">
+						<view class="card-actions-item" data-boothid="{{item.booth_ID}}" bindtap="toEditBooth" style="color: royalblue;">{{item.booth_no}}</view>
+						<view class="card-actions-item" style="width: 50%;">{{item.booth_name}}</view>
+						<view class="card-actions-item" style="width: 35%;">
+							<block wx:if="{{boothType == 1}}">
+								<button class="fa fa-upload" size="mini" data-boothid="{{item.booth_ID}}" data-boothno="{{item.booth_no}}" data-boothname="{{item.booth_name}}" bindtap="toImportBoothMenu" style="font-size: 30rpx;margin-left: 10rpx;"></button>
+								<button class="fa fa-list" size="mini" data-boothid="{{item.booth_ID}}" bindtap="toViewBoothMenu" style="font-size: 30rpx;margin-left: 10rpx;"></button>
+							</block>
+							<button class="fa fa-trash" size="mini" data-boothid="{{item.booth_ID}}" bindtap="deleteBooth" style="font-size: 30rpx;margin-left: 10rpx;"></button>
+						</view>
+					</view>
+				</view>
+			</block>
+            <block wx:if="{{boothType == 3 || boothType == 4}}">
+				<view class="uni-card__actions">
+					<view class="card-actions">
+						<view class="card-actions-item" style="width: 15%;">Time</view>
+						<view class="card-actions-item" style="width: 30%;">Title</view>
+						<view class="card-actions-item" style="width: 30%;">Performers</view>
+						<view class="card-actions-item" style="width: 10%;">Operate</view>
+					</view>
+				</view>
+				<view class="uni-card__actions">
+					<view class="card-actions" wx:for="{{boothList}}" wx:key="this">
+						<view class="card-actions-item" data-boothid="{{item.booth_ID}}" bindtap="toEditBooth" style="width: 15%;color: #2979ff;">{{item.start_time}}-{{item.end_time}}</view>
+						<view class="card-actions-item" data-boothid="{{item.booth_ID}}" bindtap="toEditBooth" style="width: 30%;">{{item.booth_name}}</view>
+						<view class="card-actions-item" style="width: 30%;">{{item.booth_organization}}</view>
+						<view class="card-actions-item" style="width: 10%;">
+							<button class="fa fa-trash" size="mini" data-boothid="{{item.booth_ID}}" bindtap="deleteBooth" style="font-size: 30rpx;margin-left: 10rpx;"></button>
+						</view>
+					</view>
+				</view>
+			</block>
+			<block wx:if="{{boothList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

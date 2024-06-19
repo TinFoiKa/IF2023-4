@@ -1,0 +1,15 @@
+<!--pages/EB/MyQR/MyQR.wxml-->
+<view class="content">
+    <my-top backflag="true" toptitle=''></my-top>
+	<view style="width: 100%;text-align: center;margin-top: 50rpx;">
+        <text style="font-size: 60rpx;margin: 30rpx;">My IFQR</text>
+    </view>
+    <view style="width: 100%;">
+        <canvas type="2d" bind:longtap="share" id="myQrcode" style="width:260px;height: 260px;position: relative;left:0;right:0;margin:0 auto;"></canvas>
+    </view>
+    <view style="height: 50px;width: 100%;text-align: center;margin-top: 30rpx;">
+        <text style="font-size: x-small;">{{myQrcode}}</text>
+	</view>
+	<button style="margin-top: 20rpx;width: 68%;line-height: 70rpx;border-radius: 15rpx;background-color: #E77B0B;" type="primary" bindtap="share">Download And Share</button>
+    <button style="margin-top: 40rpx;width: 68%;line-height: 70rpx;border-radius: 15rpx;background-color: #E77B0B;" type="primary" bindtap="resetQRCode">Reset</button>
+</view>

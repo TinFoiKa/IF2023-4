@@ -1,0 +1,2 @@
+/* pages/EventAdmin/DisableAccountList/DisableAccountList.wxss */
+@import "/pages/EventAdmin/BoothManager/EditBoothMgr/EditBoothMgr.wxss";

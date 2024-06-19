@@ -1,0 +1,64 @@
+<!--pages/EventAdmin/Announcements/Announcements.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content"> 
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Announcements'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Announcements</view>
+				</view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no">
+						<button class="fa fa-plus" type="primary" size="mini" bindtap="addAnnouncement" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+					</view>
+				</view>
+            </view>
+            <view class="uni-card__actions">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width: 70%;">Content</view>
+                    <view class="card-actions-item">Topped</view>
+                    <view class="card-actions-item" style="width: 20%;">Operate</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{AnnouncementList}}" wx:key="this"> 
+                <view class="card-actions" style="font-size: 30rpx;">
+                    <view class="card-actions-item" style="width: 70%;">
+                        <text wx:if="{{item.notice_status==0}}" style="color: red;">[New]</text>
+                        <text wx:if="{{item.notice_status==1}}" style="color: green;">[Published]</text>
+                        {{item.notice_content}}
+                    </view>
+                    <view class="card-actions-item">
+                        <switch checked="{{item.is_top}}" data-id="{{item.notice_ID}}" bindchange="changeTop" style="zoom: .6;" />
+                    </view>
+                    <view class="card-actions-item" style="width: 20%;">
+                        <view>
+                            <button class="fa fa-pencil" size="mini" data-id="{{item.notice_ID}}" bindtap="toEditAnnouncement" style="font-size: 30rpx;"></button>
+                        </view>
+                        <view style="margin-left: 15rpx;">
+                            <button class="fa fa-trash" size="mini" data-id="{{item.notice_ID}}" bindtap="deleteAnnouncement" style="font-size: 30rpx;"></button>
+                        </view>
+                    </view>
+				</view>
+                <view style="font-size: 30rpx;margin-bottom: 20rpx;">
+					<view>
+                        <block wx:if="{{item.notice_status==0}}">Submission time</block>
+                        <block wx:if="{{item.notice_status==1}}">Release time</block>
+                        ：{{fmt.formatDate_MMddHHmm(item.release_time) }}
+                    </view>
+                    <view wx:if="{{item.is_top==1}}">
+                        Top time：{{fmt.formatDate_MMddHHmm(item.top_time) }}
+                    </view>
+				</view>
+			</view>
+			<block wx:if="{{AnnouncementList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,2 @@
+/* pages/My/MyEagleBuckShowMore/MyEagleBuckShowMore.wxss */
+@import "/pages/BoothLists/Foods/Foods.wxss";

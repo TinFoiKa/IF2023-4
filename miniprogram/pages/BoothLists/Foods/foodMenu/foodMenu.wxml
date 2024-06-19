@@ -1,0 +1,33 @@
+<!--pages/BoothLists/Foods/foodMenu/foodMenu.wxml-->
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-list">
+        <view class="uni-body">
+            <view class="uni-section-header">
+                <view class="uni-section-line"></view>
+                <view class="uni-section-header__content">Food Menu</view>
+            </view>
+            <view class="uni-content-right"> 
+                <view class="uni-content-no">{{boothNo}}</view>
+                <view class="uni-content-name">{{boothName}}</view>
+            </view>
+        </view>
+        <view class="uni-list-cell" wx:for="{{menuList}}" wx:key="this">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">{{index+1}}.{{item.menu_name}}</view>
+                </view>
+                <block wx:if="{{item.icon != ''}}">
+                    <image class="uni-media-list-logo" mode="aspectFit" src="{{item.icon}}" data-url="{{item.icon}}" bindtap="showImage" style="width: 150rpx;height: 150rpx;margin-top: -20rpx;"></image>
+                </block>
+            </view>
+		</view>
+		<block wx:if="{{menuList.length == 0}}">
+			<view class="page__bd">
+				<view class="weui-loadmore weui-loadmore_line">
+					<text class="weui-loadmore__tips">No data</text>
+				</view>
+			</view>
+		</block>
+    </view> 
+</view>

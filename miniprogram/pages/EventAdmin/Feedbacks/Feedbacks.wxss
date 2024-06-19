@@ -1,0 +1,2 @@
+/* pages/EventAdmin/Feedbacks/Feedbacks.wxss */
+@import "/pages/BoothLists/Foods/Foods.wxss";

@@ -1,0 +1,38 @@
+<!--pages/EventAdmin/BoothManager/EditLuckyDrawPrize/EditLuckyDrawPrize.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Prize'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true" style="height: {{xheight}}">
+            <form bindsubmit="submitForm">
+                <view class="uni-section-content">
+                    <view class="uni-forms">
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Prize Name</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="prizeName" value="{{prize.prize_name}}" maxlength="200" style="width: 100%;" placeholder="Please input the Prize name" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Prize Value</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="prizeValue" value="{{prize.prize_value}}" maxlength="200" style="width: 100%;" placeholder="please input Prize Value" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Photo</view>
+                            <view wx:if="{{photoFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{photoFileName}}</view>
+                                <view wx:if="{{photoProgress}}" style="margin-left: 10px;">{{photoProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removePhotoFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadPhoto" style="margin-left: 30rpx;margin-right: auto;background-color: rgb(26, 97, 189)">upload</button>
+                        </view>
+                        <view class="button-group">
+                            <button type="primary" form-type="submit" style="width: 40%;background-color: #1a61bd;">Save</button>
+                        </view>
+                    </view>
+                </view>
+            </form>
+        </scroll-view>
+    </view>
+</view>

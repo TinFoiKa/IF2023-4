@@ -1,0 +1,23 @@
+<!--pages/wechatLogin/wechatLogin.wxml-->
+<view>
+	<view style="width: 100%;text-align: center;margin-top: 50rpx;">
+		<image mode="widthFix" style="width: 90%;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/login_background_1.png"></image>
+		<button open-type="chooseAvatar" bindchooseavatar="onChooseAvatar" style="width: 170rpx;height: 170rpx;margin-left: 230rpx;margin-top: -300rpx;margin-bottom: 130rpx;border-radius:50%;">
+			<image mode="aspectFit" src="{{avatarUrl}}" style="width: 170rpx;height: 170rpx;margin-left: -45rpx;margin-top: -17rpx;"></image>
+		</button>
+	</view>
+	<view style="width: 100%;text-align: center;">
+		<image mode="widthFix" style="width: 90%;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/login_background_2.png" ></image>
+		<view style="margin-top: -250rpx;margin-left: 310rpx;">
+			<input style="width: 280rpx;height: 180rpx;" maxlength="10" type="nickname" value="{{nickName}}" bindinput="nicknameInput" bindblur="nicknameBlur" placeholder="Alias" focus="{{nickNameFocus}}" cursor-spacing="20" />	
+		</view>
+	</view>
+	<view style="width: 100%;text-align: center;margin-top: 80rpx;">
+		<image mode="widthFix" style="width: 90%;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/login_background_3.png" ></image>
+		<image mode="widthFix" style="width: 60%;margin-top: -150rpx;position: relative;z-index: 2;" wx:if="{{isDisabled}}" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/loginBtn_disabled.png" ></image>
+		<image mode="widthFix" style="width: 60%;margin-top: -150rpx;position: relative;z-index: 2;" wx:if="{{!isDisabled}}" bindtap="register" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/loginBtn.png"></image>
+	</view>
+	<view style="width: 100%;text-align: center;margin-top: -55rpx;position: relative;">
+		<image mode="widthFix" style="width: 100%;position: relative;z-index: 1;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/index_bottom.png"></image>
+	</view>
+</view>

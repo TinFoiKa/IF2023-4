@@ -1,0 +1,39 @@
+/* pages/EB/QRs/QRs.wxss */
+@import "/pages/BoothLists/Foods/Foods.wxss";
+
+.ebs-content{
+  background-color: #EDF3F7; 
+  /* border: 1rpx solid #bbbbbb */
+}
+.qrtitle{
+ margin-bottom: 20rpx;
+}
+.prizelist{
+  margin-bottom: 50rpx;
+}
+.list{
+  width: 20%;
+  display: flex;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.info_con{
+  display: flex;
+}
+.describe{
+  font-size: 30rpx;
+  margin-left: 40rpx;
+  margin-bottom: 50rpx;
+}
+.ebs-btn{
+  width: 120rpx;
+  line-height: 44px;
+  height: 80rpx;
+  text-align: center;
+  background-color: rgb(26, 97, 189);
+  color: #fff;
+  margin-right: 30rpx;
+}
+.uni-card__actions{
+  padding-left: 30rpx;
+}

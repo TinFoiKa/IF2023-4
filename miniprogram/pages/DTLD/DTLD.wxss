@@ -1,0 +1,30 @@
+/* pages/DTLD/DTLD.wxss */
+@import "/pages/BoothLists/BoothLists.wxss";
+@import "/pages/BoothLists/Foods/Foods.wxss";
+@import "/pages/My/My.wxss";
+.uni-card{
+  margin: 8px; 
+  padding: 0px 10px; 
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 3px 1px;
+}
+.user-data {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  color: rgb(54, 53, 50);
+  font-size: 26rpx;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-content {
+    margin-left: 20rpx;
+    color: rgb(24, 23, 23);
+}
+.dk-cin{
+  height: 40rpx;
+  width: 40rpx;
+  /* margin-top: 20rpx; */
+}
+.usermotto {
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+/* pages/LuckyDraw/LuckyDraw.wxss */
+@import "/pages/DTLD/DTLD.wxss";
+@import "/pages/DunkTank/DunkTank.wxss";
+@import "/pages/BoothLists/Foods/foodMenu/foodMenu.wxss";
+.dr-btn{
+  width: 120rpx;
+  line-height: 44px;
+  height: 80rpx;
+  text-align: center;
+  background-color: #E77B0B;
+  color: #fff;
+  margin-right: 30rpx;
+}

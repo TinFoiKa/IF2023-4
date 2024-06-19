@@ -1,0 +1,45 @@
+<!--pages/EventAdmin/Feedbacks/ViewFeedbacks/ViewFeedbacks.wxml-->
+<wxs module="fmt" src="../../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Feedbacks'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true">
+            <form bindsubmit="submitForm">
+                <view class="uni-section-content">
+                    <view class="uni-forms">
+                        <view class="uni-forms-item" style="height: 440rpx;">
+                            <view class="uni-forms-item__label">Feedbacks content</view>
+                            <view class="uni-forms-item__input" >
+                                <textarea style="width: 95%;height: 90%;margin: 10rpx 10rpx;" value="{{feedback.content}}" maxlength="-1" disabled="true"></textarea>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Send time</view>
+                            <view class="uni-forms-item__input">
+                                <text user-select="true">{{fmt.formatDate_yyyyMMddHHmmss(feedback.create_time)}}</text>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">IFID</view>
+                            <view class="uni-forms-item__input">
+                                <text user-select="true">{{feedback.if_ID}}</text>
+                            </view>
+						</view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Alias</view>
+                            <view class="uni-forms-item__input">
+                                <text user-select="true">{{feedback.username}}</text>
+                            </view>
+						</view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Phone Number</view>
+                            <view class="uni-forms-item__input">
+                                <text user-select="true">{{feedback.phone_num}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </form>
+        </scroll-view>
+    </view>
+</view>

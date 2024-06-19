@@ -1,0 +1,42 @@
+<!--pages/EventAdmin/BoothManager/EditBoothShows/EditBoothShows.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Booth'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true" style="height: {{xheight}}">
+            <view class="uni-section-content">
+                <view class="uni-forms">
+					<view class="uni-forms-item">
+						<view class="uni-forms-item__label"><span style="color: red;">*</span>Start Time</view>
+						<view class="uni-forms-item__input">
+							<input class="input-label" model:value="{{startTime}}" maxlength="50" style="width: 100%;" placeholder="Please input the Start Time" />
+						</view>
+					</view>
+					<view class="uni-forms-item">
+						<view class="uni-forms-item__label"><span style="color: red;">*</span>End Time</view>
+						<view class="uni-forms-item__input">
+							<input class="input-label" model:value="{{endTime}}" maxlength="50" style="width: 100%;" placeholder="Please input the End Time" />
+						</view>
+					</view>
+					<view class="uni-forms-item">
+						<view class="uni-forms-item__label"><span style="color: red;">*</span>Title</view>
+						<view class="uni-forms-item__input">
+							<input class="input-label" model:value="{{title}}" maxlength="200" style="width: 100%;" placeholder="Please input the Title" />
+						</view>
+					</view>
+					<view class="uni-forms-item" style="height: 240rpx;">
+						<view class="uni-forms-item__label">Performers</view>
+						<view class="uni-forms-item__input">
+							<textarea name="foodDesc" model:value="{{boothOrganization}}" placeholder="please input Performers" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+						</view>
+					</view>
+                    <view class="button-group">
+                        <button type="primary" bindtap="submit" style="width: 40%;background-color: #1a61bd;">Submit</button>
+                    </view>
+                    <view class="button-group">
+                        <text style="color: red;">{{errorMsg}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

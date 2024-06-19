@@ -1,0 +1,108 @@
+<!--pages/EventAdmin/DisableAccountList/DisableAccountList.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Disabled Accounts'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Disabled Accounts</view>
+                </view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no">
+						<button class="fa fa-plus" type="primary" size="mini" bindtap="toSelectUser" style="background-color: #1a61bd;font-size: 35rpx;"></button>
+					</view>
+				</view>
+            </view>
+            <view class="uni-card__actions">
+                <view class="card-actions">
+					<view class="card-actions-item" style="width: 15%;">IFID</view>
+					<view class="card-actions-item" style="width: 35%;">User Name</view>
+					<view class="card-actions-item" style="width: 35%;">Phone Number</view>
+					<view class="card-actions-item" style="width: 15%;">Operate</view>
+                </view>
+            </view>
+			<view class="uni-card__actions" wx:for="{{disableUserList}}" wx:key="this">
+				<view class="card-actions" style="font-size: 30rpx;">
+					<view class="card-actions-item" style="width: 15%;">{{item.if_ID}}</view>
+					<view class="card-actions-item" style="width: 35%;">{{item.username}}</view>
+					<view class="card-actions-item" style="width: 35%;margin-left: 10rpx;">{{item.phone_num}}</view>
+					<view class="card-actions-item" style="width: 15%;">
+						<button class="fa fa-trash" size="mini" data-userid="{{item.open_ID}}" data-icon="{{item.icon}}" bindtap="deleteUser" style="font-size: 30rpx;"></button>
+					</view>
+				</view>
+			</view>
+			<block wx:if="{{disableUserList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>
+
+<page-container show="{{popup_hidden}}" position="right">
+	<view class="content">
+		<my-top backflag="true" homeflag="true" isFixation="true" toptitle=''></my-top>
+		<scroll-view scroll-y="true" style="height: {{xheight}}">
+			<view class="uni-card-ul uni-card--shadow uni-card--border">
+				<view class="uni-card__content" style="padding: 10px;">
+					<view class="uni-body">
+						<view class="uni-section-header">
+							<view class="uni-section-line"></view>
+							<view class="uni-section-header__content">Search for user</view>
+						</view>
+						<view class="uni-content-right"> 
+							<view class="uni-content-no">
+								<button class="fa fa-check" type="primary" size="mini" bindtap="submit" style="background-color: #1a61bd;font-size: 35rpx;"></button>
+							</view>
+						</view>
+					</view>
+					<view class="uni-card__actions" style="font-size: 20rpx;">
+						<view class="card-actions" style="min-height: 40px;font-size: 30rpx;">
+							<view class="card-actions-item" style="width: 60%;height: 30rpx;margin-left: 70rpx;">Total number of Account(s): </view>
+							<view class="card-actions-item" style="width: 40%;height: 30rpx;">
+								<text style="font-size: 50rpx;margin: 0rpx 10rpx;">{{totalAccountCount}}</text>
+							</view>
+						</view>
+					</view>
+					<view class="uni-card__actions">
+						<view class="card-actions">
+							<view class="card-actions-item" style="width:70%">
+								<input style="border: 1px solid;font-size: 30rpx;width: 100%;" model:value="{{searchInp}}" placeholder="IFID" />
+							</view>
+							<view class="card-actions-item">
+								<button type="primary" size="mini" bindtap="searchBtn" style="background-color: #1a61bd;font-size: 30rpx;">Search</button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 15%;">Select</view>
+							<view class="card-actions-item" style="width: 15%;">IFID</view>
+							<view class="card-actions-item" style="width: 35%;">User Name</view>
+							<view class="card-actions-item" style="width: 35%;">Phone Number</view>
+						</view>
+						<checkbox-group bindchange="change">
+							<view class="card-actions" style="font-size: 30rpx;" wx:for="{{notSelectUserList}}" wx:key="this">
+								<view class="card-actions-item" style="width: 15%;">
+									<checkbox class="checkboxClass" value="{{item.open_ID}}" checked='{{item.isCheck}}' />
+								</view>
+								<view class="card-actions-item" style="width: 15%;">{{item.if_ID}}</view>
+								<view class="card-actions-item" style="width: 35%;">{{item.username}}</view>
+								<view class="card-actions-item" style="width: 35%;">{{item.phone_num}}</view>
+							</view>
+						</checkbox-group>
+						<block wx:if="{{notSelectUserList.length == 0}}">
+							<view class="page__bd">
+								<view class="weui-loadmore weui-loadmore_line">
+									<text class="weui-loadmore__tips">No data</text>
+								</view>
+							</view>
+						</block>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</page-container>

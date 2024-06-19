@@ -1,0 +1,87 @@
+<!--pages/BoothMgr/BoothMgr.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content">
+	<my-top backflag="true" homeflag="true" toptitle='Booth Manager'></my-top>
+	<view class="navbar">
+		<text wx:for="{{navbar}}" wx:key="unique" data-idx="{{index}}" bindtap="navbarTap" class="item {{currentTab==index ? 'active' : ''}}">{{item}}</text>
+	</view>
+    <view class="container" wx:if="{{currentTab == 0}}">
+        <view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+			<view style="margin-top: 10rpx;">Booth No: {{boothInfo.booth_no}}</view>
+			<view style="margin-top: 10rpx;">{{boothInfo.booth_name}}</view>
+		</view>
+		<view class="img-group">
+            <image class="avar-img" bindtap="scan" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/Scan.png" style="width: 284rpx;height: 228rpx;margin: 10px 0px;"></image>
+        </view>
+		<view wx:if="{{isTransfer}}">
+			<view style="width: 100%;font-size: 30rpx;">
+				<view style="margin: 10px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+					You are going to transfer
+				</view>
+				<view style="margin: 0px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+					<view style="width: 300rpx;position: relative;line-height: 1;font-size: 14px;height: 80rpx;display: flex;align-items: center;box-sizing: border-box;flex-direction: row;align-items: center;border: 1px solid #dcdfe6;border-radius: 4px;padding-left: 20rpx;">
+						<input class="input-label" type="number" value="{{inputNumber}}" bindinput="changeNumber" bindblur="blurNumber" maxlength="5" placeholder="Number" style="width: 90%;text-align: center;" />
+					</view>
+					<view style="height: 80rpx;display: flex;align-items: center;">
+						<view style="margin-left: 10px;">Back(s) From </view>
+					</view>
+					<view style="height: 80rpx;display: flex;align-items: center;">
+						<text style="margin-left: 10px;font-size: 40rpx;color: red;">{{transferUser.username}}</text>
+						<text style="margin-left: 10px;font-size: 30rpx;">to</text>
+						<text style="margin-left: 10px;font-size: 40rpx;color: red;">{{boothInfo.booth_no}} Booth</text>
+					</view>
+				</view>
+			</view>
+			<view class="button-group" style="margin-top: 40rpx;">
+				<view class="uni-forms-item__button" bindtap="cancel" style="width: 40%; border-radius: 8rpx;background-color: #1a61bd;">Cancel</view>
+				<view class="uni-forms-item__button" bindtap="submit" style="width: 40%; border-radius: 8rpx;background-color: #1a61bd;">Submit</view>
+			</view>
+		</view>
+    </view>
+	<scroll-view scroll-y="true" style="height: {{xheight}}">
+		<view class="uni-card-ul uni-card--shadow uni-card--border" wx:if="{{currentTab == 1}}">
+			<view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+				<view style="margin-top: 10rpx;">Booth No: {{boothInfo.booth_no}}</view>
+				<view style="margin-top: 10rpx;">{{boothInfo.booth_name}}</view>
+				<view style="margin-top: 10rpx;">Total: {{boothInfo.eB}} Buck(s)</view>
+			</view>
+			<view class="uni-card__content" style="padding: 10px;">
+				<view class="uni-card__actions" style="font-size: 30rpx;">
+					<view class="card-actions">
+						<view class="card-actions-item">No.</view>
+						<view class="card-actions-item">IFID</view>
+						<view class="card-actions-item">Buck(s)</view>
+						<view class="card-actions-item" style="width: 45%;">Time</view>
+					</view>
+				</view>
+				<view class="uni-card__actions" wx:for="{{recordList}}" wx:key="this">
+					<view class="card-actions" style="font-size: 30rpx;" wx:if="{{item.type == 3}}">
+						<view class="card-actions-item">{{index+1}}</view>
+						<view class="card-actions-item">{{item.sender_IFID}}</view>
+						<view class="card-actions-item">
+							<block wx:if="{{item.type == 3}}"><text>+ {{item.eb_number}}</text></block>
+							<block wx:elif="{{item.type == 4}}"><text>- {{item.eb_number}}</text></block>
+						</view>
+						<view class="card-actions-item" style="width: 45%;">{{fmt.formatDate_yyyyMMddHHmmss(item.datetime)}}</view>
+					</view>
+					<view class="card-actions" style="font-size: 30rpx;color: red;" wx:if="{{item.type == 4}}">
+						<view class="card-actions-item">{{index+1}}</view>
+						<view class="card-actions-item">{{item.recipient_IFID}}</view>
+						<view class="card-actions-item">
+							<block wx:if="{{item.type == 3}}"><text>+ {{item.eb_number}}</text></block>
+							<block wx:elif="{{item.type == 4}}"><text>- {{item.eb_number}}</text></block>
+						</view>
+						<view class="card-actions-item" style="width: 45%;">{{fmt.formatDate_yyyyMMddHHmmss(item.datetime)}}</view>
+					</view>
+				</view>
+				<block wx:if="{{recordList.length == 0}}">
+					<view class="page__bd">
+						<view class="weui-loadmore weui-loadmore_line">
+							<text class="weui-loadmore__tips">No data</text>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</scroll-view>
+</view>

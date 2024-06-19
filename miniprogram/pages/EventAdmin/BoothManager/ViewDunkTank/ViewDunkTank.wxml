@@ -1,0 +1,51 @@
+<!--pages/EventAdmin/BoothManager/ViewDunkTank/ViewDunkTank.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Dunk Tank'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Dunk Tank</view>
+                </view>
+                <view class="uni-content-right"> 
+                    <view class="uni-content-no">
+                        <button class="fa fa-plus" type="primary" size="mini" bindtap="addDunkTank" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+                    </view>
+                </view>
+            </view>
+            <view class="uni-card__actions">
+                <view class="card-actions" style="font-size: 30rpx;">
+                    <view class="card-actions-item">icon</view>
+                    <view class="card-actions-item">Full Name</view>
+                    <view class="card-actions-item">Target</view>
+                    <view class="card-actions-item">Actual</view>
+                    <view class="card-actions-item">Operate</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{boothList}}" wx:key="this">
+                <view class="card-actions" style="font-size: 30rpx;height: 160rpx;">
+                    <view class="card-actions-item">
+                        <block wx:if="{{item.dunked_url != ''}}">
+                            <image style="width: 110rpx;height: 140rpx;" src="{{item.dunked_url}}" wx:if="{{item.dunked_url != ''}}"></image>
+                        </block>
+                    </view>
+                    <view class="card-actions-item">{{item.dunked_guy}}</view>
+                    <view class="card-actions-item">{{item.goal_rmb}}</view>
+                    <view class="card-actions-item">{{item.dunked_rmb}}</view>
+                    <view class="card-actions-item">
+                        <button class="fa fa-pencil" size="mini" data-boothid="{{item.dunk_ID}}" bindtap="toEditDunkTank" style="font-size: 30rpx;"></button>
+                        <button class="fa fa-trash" size="mini" data-boothid="{{item.dunk_ID}}" bindtap="deleteDunkTank" style="font-size: 30rpx;"></button>
+                    </view>
+                </view>
+			</view>
+			<block wx:if="{{boothList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

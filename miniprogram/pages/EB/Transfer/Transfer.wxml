@@ -1,0 +1,29 @@
+<!--pages/EB/Transfer/Transfer.wxml-->
+<view class="content">
+    <my-top backflag="true" toptitle=''></my-top>
+    <view class="container">
+        <view class="img-group">
+            <image class="avar-img" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/money.jpg" style="height: 600rpx;width: 600rpx;margin: 10px 0px;"></image>
+        </view>
+        <view style="width: 100%;font-size: 30rpx;">
+            <view style="margin: 10px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+                You are going to receive
+            </view>
+            <view style="margin: 0px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+				<view style="width: 300rpx;position: relative;line-height: 1;font-size: 14px;height: 80rpx;display: flex;align-items: center;box-sizing: border-box;flex-direction: row;align-items: center;border: 1px solid #dcdfe6;border-radius: 4px;padding-left: 20rpx;">
+                    <input class="input-label" type="number" value="{{inputNumber}}" bindinput="changeNumber" bindblur="blurNumber" maxlength="5" placeholder="Number" style="text-align: center;width: 90%;font-size: 50rpx;color: red;" />
+                </view>
+                <view style="height: 80rpx;display: flex;align-items: center;margin-left: 10px;">
+                    <view style="margin-left: 10px;">Bucks from</view>
+                </view>
+                <view style="height: 80rpx;display: flex;align-items: center;margin-left: 10px;">
+                    <text style="margin-left: 10px;font-size: 14px;">{{transferUser.username}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="button-group" style="margin-top: 40rpx;">
+            <view class="uni-forms-item__button" bindtap="submit" style="width: 40%; border-radius: 8rpx;background-color: #E77B0B;">Submit</view>
+            <view class="uni-forms-item__button" bindtap="cancel" style="width: 40%; border-radius: 8rpx;background-color: #E77B0B;">Cancel</view>
+        </view>
+    </view>
+</view>

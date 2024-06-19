@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "my-top":"../../components/my-top/my-top"  
+    },
+    "component": true,
+    "navigationStyle": "custom",
+	"navigationBarTitleText":"个人",
+	"enablePullDownRefresh": true
+}

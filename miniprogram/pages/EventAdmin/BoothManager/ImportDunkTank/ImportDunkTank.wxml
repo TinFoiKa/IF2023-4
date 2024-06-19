@@ -1,0 +1,27 @@
+<!--pages/EventAdmin/BoothManager/ImportDunkTank/ImportDunkTank.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Import Booth'></my-top>
+    <view style="text-align: center;font-size: 50rpx;">Import Dunk Tank</view>
+    <view wx:if="{{isUpload}}">
+        <view><button style="width: 80%;margin-top: 5px;font-size: 30rpx;background-color: #1a61bd;" type="primary" bindtap="import">Import Template</button></view>
+        <view><button style="width: 80%;margin-top: 5px;font-size: 30rpx;background-color: #1a61bd;" type="primary" bindtap="download">Download Template</button></view>
+    </view>
+    <view wx:if="{{!isUpload}}">
+        <view style="border:1px solid #CCC;width: 100%;">
+            <view style="width: 100%;display:flex;justify-content: space-between;background-color: gray;font-size: 35rpx;">
+                <view style="margin-top: 10rpx;margin-bottom: 10rpx;">Error Row Number</view>
+                <view style="margin-top: 10rpx;margin-bottom: 10rpx;">Error Description</view>
+            </view>
+            <block wx:for="{{errorInfos}}" wx:key="this">
+                <view style="width: 100%;display:flex;justify-content: space-between;margin-top: 5px;font-size: 30rpx;">
+                    <view>{{item[0]}}</view>
+                    <view>{{item[1]}}</view>
+                </view>
+            </block>
+        </view>
+        <view>
+            <view style="margin-top: 5px;"><button type="primary" style="width: 80%;font-size: 30rpx;background-color: #1a61bd;" bindtap="continueImporting">Continue importing</button></view>
+            <view style="margin-top: 5px;"><button type="primary" style="width: 80%;font-size: 30rpx;background-color: #1a61bd;" bindtap="goBack">Go Back</button></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<!--pages/PTSACashier/ViewBoothQRCode/ViewBoothQRCode.wxml-->
+<view class="content">
+	<my-top backflag="true" homeflag="true" toptitle='Booth QR Code'></my-top>
+	<view style="width: 100%;text-align: center;margin-top: 50rpx;">
+		<text style="font-size: 50rpx;">{{booth.booth_no}}</text>
+	</view>
+	<view style="width: 100%;text-align: center;">
+		<text style="font-size: 50rpx;">{{booth.booth_name}}</text>
+	</view>
+	<view style="width: 100%;margin-top: 30rpx;">
+		<canvas type="2d" style="width:260px;height: 260px;position: relative;left:0;right:0;margin:0 auto;" id="boothQrcode"></canvas>
+	</view>
+	<view style="height: 50px;width: 100%;text-align: center;margin-top: 10rpx;">
+		<text style="font-size: x-small;">{{booth.ifqr}}</text>
+	</view>
+</view>

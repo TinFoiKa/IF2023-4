@@ -1,0 +1,80 @@
+/* pages/EventAdmin/BoothManager/ViewSponsorDetail/ViewSponsorDetail.wxss */
+@import "/pages/My/My.wxss";
+@import "/pages/BoothLists/Foods/Foods.wxss";
+.uni-section-content{
+  /* padding: 15px; */
+  width: 100%;
+  background-color: #fff;
+}
+.uni-forms{
+  font-size: 30rpx;
+  background-color: #fff;
+}
+.uni-forms-item{
+    display: flex;
+    position: relative;
+    margin-bottom: 16px;
+    flex-direction: column;
+    min-height: 150rpx;
+    width: 96%;
+    margin-left: 2%;
+}
+.uni-forms-item__input{
+  width: auto;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  line-height: 1;
+  font-size: 14px;
+  height: 80rpx;
+  display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    padding-left: 20rpx;
+}
+.uni-forms-item__label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  font-size: 14px;
+  color: #606266;
+  height: 36px;
+  justify-content: flex-start;
+}
+.uni-forms-item__button{
+  width: 120rpx;
+  line-height: 44px;
+  height: 80rpx;
+  text-align: center;
+  background-color: rgb(26, 97, 189);
+  color: #fff;
+  margin-right: 30rpx;
+}
+.picker-item{
+  height: 120rpx;
+    position: absolute;
+    width: 100%;
+}
+.uni-forms-picker{
+width: 40%;
+  position: relative;
+  line-height: 80rpx;
+  font-size: 14px;
+  height: 80rpx;
+  display: flex;
+ 
+    flex-direction: row;
+
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    padding-left: 20rpx;
+}
+.button-group{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50rpx;
+}

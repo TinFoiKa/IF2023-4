@@ -1,0 +1,31 @@
+/* pages/DunkTank/DunkTank.wxss */
+@import "/pages/DTLD/DTLD.wxss";
+@import "/pages/EB/EB.wxss";
+.dk-pt{
+  width: 260rpx;
+  height: 320rpx;
+}
+.dk-table{
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.dk-col{
+  flex: 0 0 auto;
+  width: 33.3%;
+  text-align: center;
+  color: #797979;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.dk-img{
+  width: 200rpx;
+  height: 200rpx;
+}
+.dk-btn{
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  background-color: #E77B0B;
+  color: #fff;
+}

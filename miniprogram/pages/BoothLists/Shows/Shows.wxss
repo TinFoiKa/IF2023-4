@@ -1,0 +1,2 @@
+/* pages/BoothLists/Shows/Shows.wxss */
+@import "/pages/BoothLists/Foods/Foods.wxss";

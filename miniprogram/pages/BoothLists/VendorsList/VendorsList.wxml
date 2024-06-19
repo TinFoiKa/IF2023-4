@@ -1,0 +1,24 @@
+<!--pages/BoothLists/VendorsList/VendorsList.wxml-->
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view style="background-color: #fff;padding-left: 40rpx;padding-top: 30rpx;">
+        <text class="user-motto" wx:if="{{type == 2}}">Vendors:</text>
+        <text class="user-motto" wx:if="{{type == 3}}">Student Market Place:</text>
+    </view>
+    <view class="uni-list">
+        <view class="uni-list-cell" wx:for="{{vendorsList}}" wx:key="this" data-value="{{item.sponsor_ID}}">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">{{item.sponsor_name}}</view>
+                </view>
+            </view>
+		</view>
+		<block wx:if="{{vendorsList.length == 0}}">
+			<view class="page__bd">
+				<view class="weui-loadmore weui-loadmore_line">
+					<text class="weui-loadmore__tips">No data</text>
+				</view>
+			</view>
+		</block>
+    </view>
+</view>

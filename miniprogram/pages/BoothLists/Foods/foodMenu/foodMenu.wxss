@@ -1,0 +1,21 @@
+/* pages/BoothLists/Foods/foodMenu/foodMenu.wxss */
+@import "/pages/BoothLists/BoothLists.wxss";
+@import "/pages/BoothLists/Foods/Foods.wxss";
+.uni-content-right{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+
+}
+.uni-body {
+  display: flex;
+  justify-content: space-between;
+}
+.uni-body {
+  border-bottom: 1rpx solid #ddd;
+}
+
+.uni-media-list-logo {
+    margin-right: 30rpx;
+}

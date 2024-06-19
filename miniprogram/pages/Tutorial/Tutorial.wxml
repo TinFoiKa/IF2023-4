@@ -1,0 +1,21 @@
+<!--pages/Tutorial/Tutorial.wxml-->
+<view>
+	<scroll-view scroll-y="true">
+		<swiper indicator-dots="true" bindchange="change" current="{{currentIndex}}" style="height: calc(750rpx*812/375);">
+			<block wx:for="{{imgUrls}}" wx:key="*this">
+				<swiper-item>
+					<image mode="widthFix" src="{{item}}" style="width: 100%;"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view style="position: absolute;bottom: 100rpx;right:20px;">
+			<block wx:if="{{!letsGo}}">
+				<button type="primary" size="mini" bindtap="tutorial" style="border-radius: 40rpx;">Skip</button>
+			</block>
+			<block wx:if="{{letsGo}}">
+				<button type="primary" size="mini" bindtap="tutorial" style="background-color: #ff5029;border-radius: 40rpx;">Let's go</button>
+			</block>
+		</view>
+	</scroll-view>
+</view>
+

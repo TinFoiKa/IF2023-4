@@ -1,0 +1,60 @@
+<!--pages/EventAdmin/BoothManager/EditEagleBuck/EditEagleBuck.wxml-->
+<wxs module="fmt" src="../../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Eagle Buck'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true" style="height: {{xheight}}">
+            <form bindsubmit="submitForm">
+                <view class="uni-section-content">
+                    <view class="uni-forms">
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Eagle Buck Name</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="ebName" value="{{ebInfo.eb_name}}" maxlength="200" style="width: 100%;" placeholder="Eagle Buck Name" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Eagle Buck Number</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="ebNumber" value="{{ebInfo.eb_number}}" type="number" maxlength="10" style="width: 100%;" placeholder="Eagle Buck Number" />
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Price(RMB)</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="ebPrice" value="{{ebInfo.eb_price}}" type="digit" maxlength="10" style="width: 100%;" placeholder="Eagle Buck Price" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">
+								<span style="color: red;">*</span>Available start date / time
+                            </view>
+                            <view style="display: flex;justify-content: space-around;">
+								<view class="uni-forms-picker" style="width: 100%;">
+									<picker mode="multiSelector" value="{{startDate}}" data-type="startDate" data-param='startDate_p' bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+										<view class="picker-item">{{startDate_p}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">
+								<span style="color: red;">*</span>Available end date / time
+                            </view>
+                            <view style="display: flex;justify-content: space-around;">
+                                <view class="uni-forms-picker" style="width: 100%;">
+                                    <picker mode="multiSelector" name="endDate" value="{{endDate}}" data-type="endDate" data-param='endDate_p' bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+                                        <view class="picker-item">{{endDate_p}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="button-group">
+                            <button type="primary" form-type="submit" style="width: 40%;background-color: #1a61bd;">Save</button>
+                        </view>
+                    </view>
+                </view>
+            </form>
+        </scroll-view>
+    </view>
+</view>

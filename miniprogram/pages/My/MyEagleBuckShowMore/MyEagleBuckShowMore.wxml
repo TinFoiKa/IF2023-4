@@ -1,0 +1,106 @@
+<!--pages/My/MyEagleBuckShowMore/MyEagleBuckShowMore.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">My Eagle Bucks Records</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 20rpx;">
+                <view class="card-actions" style="min-height: 40px;font-size: 30rpx;">
+					<view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">Total Balance: </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{userInfo.eB == 0}}" style="margin: 0rpx 10rpx;">{{userInfo.eB}}</text>
+						<text wx:if="{{userInfo.eB > 0}}" style="font-size: 50rpx;margin: 0rpx 10rpx;">{{userInfo.eB}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+				<view class="card-actions" style="min-height: 40px;">
+					<view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">Purchased（P）: </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{eagleBuckSubtotal.totalBuy == 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalBuy}}</text>
+						<text wx:if="{{eagleBuckSubtotal.totalBuy > 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalBuy}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+				<view class="card-actions" style="min-height: 40px;">
+					<view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">TransferOut(TO): </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{eagleBuckSubtotal.totalReceivedOut == 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReceivedOut}}</text>
+						<text wx:if="{{eagleBuckSubtotal.totalReceivedOut > 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReceivedOut}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+				<view class="card-actions" style="min-height: 40px;">
+					<view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">TransferIn（TI）: </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{eagleBuckSubtotal.totalReceived == 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReceived}}</text>
+						<text wx:if="{{eagleBuckSubtotal.totalReceived > 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReceived}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+				<view class="card-actions" style="min-height: 40px;">
+					<view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">Consumed（C）: </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{eagleBuckSubtotal.totalSpent == 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalSpent}}</text>
+						<text wx:if="{{eagleBuckSubtotal.totalSpent > 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalSpent}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+				<view class="card-actions" style="min-height: 40px;" wx:if="{{eagleBuckSubtotal.totalReturn > 0}}">
+                    <view class="card-actions-item" style="width: 40%;height: 30rpx;margin-left: 70rpx;">Refund: </view>
+					<view class="card-actions-item" style="width: 60%;height: 30rpx;">
+						<text wx:if="{{eagleBuckSubtotal.totalReturn == 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReturn}}</text>
+						<text wx:if="{{eagleBuckSubtotal.totalReturn > 0}}" style="margin: 0rpx 10rpx;">{{eagleBuckSubtotal.totalReturn}}</text> 
+						Buck(s)
+                    </view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width: 5%;">No.</view>
+                    <view class="card-actions-item" style="width: 10%;">Payment</view>
+                    <view class="card-actions-item" style="width: 8%;">Buck(s)</view>
+                    <view class="card-actions-item" style="width: 10%;">Type</view>
+                    <view class="card-actions-item" style="width: 25%;">Time</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{recordList}}" wx:index="index" wx:key="this" style="font-size: 30rpx;">
+                <view class="card-actions" style="text-decoration: line-through;" wx:if="{{item.type == 1 && item.is_return == 1}}">
+                    <view class="card-actions-item" style="width: 5%;">{{index+1}}</view>
+                    <view class="card-actions-item" style="width: 10%;">{{fmt.formatNumber(item.amount, 0)}}</view>
+                    <view class="card-actions-item" style="width: 8%;">{{fmt.formatNumber(item.eb_number, 0)}}</view>
+                    <view class="card-actions-item" style="width: 10%;">P</view>
+                    <view class="card-actions-item" style="width: 25%;">{{fmt.formatDate_MMddHHmm(item.datetime)}}</view>
+                </view>
+				<view class="card-actions" wx:if="{{item.type == 1 && item.is_return == 0}}">
+                    <view class="card-actions-item" style="width: 5%;">{{index+1}}</view>
+                    <view class="card-actions-item" style="width: 10%;">{{fmt.formatNumber(item.amount, 0)}}</view>
+                    <view class="card-actions-item" style="width: 8%;">{{fmt.formatNumber(item.eb_number, 0)}}</view>
+                    <view class="card-actions-item" style="width: 10%;">P</view>
+                    <view class="card-actions-item" style="width: 25%;">{{fmt.formatDate_MMddHHmm(item.datetime)}}</view>
+                </view>
+				<view class="card-actions" wx:else>
+                    <view class="card-actions-item" style="width: 5%;">{{index+1}}</view>
+                    <view class="card-actions-item" style="width: 10%;">{{fmt.formatNumber(item.amount, 0)}}</view>
+                    <view class="card-actions-item" style="width: 8%;">{{fmt.formatNumber(item.eb_number, 0)}}</view>
+                    <view class="card-actions-item" style="width: 10%;">
+                        <block wx:if="{{item.type == 1}}">P</block>
+                        <block wx:if="{{item.type == 2}}">
+                            <block wx:if="{{item.sender_open_id == openId}}">TO</block>
+                            <block wx:else>TI</block>
+                        </block>
+                        <block wx:if="{{item.type == 3}}">C</block>
+						<block wx:if="{{item.type == 4}}">Refund</block>
+						<block wx:if="{{item.type == 5}}">Redemption</block>
+                    </view>
+                    <view class="card-actions-item" style="width: 25%;">{{fmt.formatDate_MMddHHmm(item.datetime)}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

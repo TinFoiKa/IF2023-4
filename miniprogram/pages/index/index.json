@@ -1,6 +1,8 @@
 {
+  "component": true,
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "个人",
   "usingComponents": {
-    "cloud-tip-modal": "/components/cloudTipModal/index"
-  },
-  "navigationBarBackgroundColor": "#fff"
+    "my-top": "../../components/my-top/my-top"
+  }
 }

@@ -1,0 +1,11 @@
+/* pages/BoothLists/VendorsList/VendorsList.wxss */
+@import "/pages/My/My.wxss";
+@import "/pages/BoothLists/BoothLists.wxss";
+.uni-media-go{
+  width: 30rpx;
+  height: 30rpx;
+  padding-right: 30rpx;
+}
+.uni-list-cell {
+  padding-top: 30rpx;
+}

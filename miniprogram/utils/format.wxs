@@ -1,0 +1,112 @@
+//将时间转成UTC时间
+var formatDateUTC_yyyyMMddHHmmss = function UTCformat(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = getDate(utc),
+		year = date.getFullYear(),
+		month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : '0' + parseInt(date.getMonth() + 1),
+		day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate(),
+		hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours(),
+		minutes = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes(),
+		seconds = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
+		var res = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':'+ seconds;
+		return res;
+	}else{
+		return "";
+	}
+}
+
+var formatDateUTC_yyyyMMdd = function UTCformat(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = getDate(utc),
+		year = date.getFullYear(),
+		month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : '0' + parseInt(date.getMonth() + 1),
+		day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
+		var res = year + '-' + month + '-' + day;
+		return res;
+	}else{
+		return "";
+	}
+}
+
+var formatDate_yyyyMMddHHmmss = function format(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = utc.replace("T", " ")
+		date = date.substring(0, 19)
+		return date;
+	}else{
+		return "";
+	}
+}
+
+var formatDate_yyyyMMdd = function format(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = utc.substring(0, 10)
+		return date;
+	}else{
+		return "";
+	}
+}
+
+var formatDate_MMddHHmm = function format(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = utc.replace("T", " ")
+		date = date.substring(5, 16)
+		return date;
+	}else{
+		return "";
+	}
+}
+
+var formatDate_MMdd = function format(utc) {
+	if(utc != null && utc != "" && utc.length > 0){
+		var date = utc.substring(5, 10)
+		return date;
+	}else{
+		return "";
+	}
+}
+
+var formatNumber = function(num, decimal){
+	var num=(num || 0).toString();
+	if(decimal == undefined || decimal == null){
+		decimal = 2
+	}
+	var n = 1
+	for(var i=0;i<decimal;i++){
+		n=n+"0"
+	}
+	num = (Math.round(num * n) / n).toString();
+	var split = num.split(".")
+	var z = split[0]
+	var s = split[1]
+	var result='';
+	while(z.length > 3){
+		result=','+z.slice(-3)+result;
+		z=z.slice(0,z.length-3);
+	}
+	if(z){
+		result=z+result;
+	}
+	if(decimal > 0){
+		if(s == undefined || s == null || s == ""){
+			s = ""
+		}
+		while(s.length < decimal){
+			s=s+"0";
+		}
+		result=result+"."+s
+	}
+	return result;
+}
+
+  // 需要导出
+module.exports = {
+	formatDateUTC_yyyyMMddHHmmss : formatDateUTC_yyyyMMddHHmmss,
+	formatDateUTC_yyyyMMdd : formatDateUTC_yyyyMMdd,
+	formatDate_yyyyMMddHHmmss : formatDate_yyyyMMddHHmmss,
+	formatDate_yyyyMMdd : formatDate_yyyyMMdd,
+	formatDate_MMddHHmm : formatDate_MMddHHmm,
+	formatDate_MMdd : formatDate_MMdd,
+
+	formatNumber : formatNumber
+}

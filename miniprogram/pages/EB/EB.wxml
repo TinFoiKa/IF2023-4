@@ -1,0 +1,46 @@
+<!--pages/EB/EB.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top toptitle='Eagle Bucks'></my-top>
+    <view class="container">
+		<view class="credits" style="width: 90%;">
+			<view class="credits-content" style="height: 550rpx;">
+				<view class="notice-content" style="width: 100%;height: 100%;text-align: center;">
+					<image class="img-style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/YB.png" mode="aspectFit" style="width: 60%;"></image>
+				</view>
+			</view>
+			<view class="credits-content" style="min-height:180rpx;background-color: inherit;">
+				<view style="width: 100%;height: 100%;text-align: center;">
+					<text style="font-size: 40rpx;color: #8D605D;font-family: jiansong-bold;">I have paid </text>
+					<text style="color: #e77b0b;font-size: 70rpx;margin-right: 10rpx;font-weight: bold;">{{fmt.formatNumber(totalPaid, 0)}}</text>
+					<text style="font-size: 40rpx;color: #8D605D;font-family: jiansong-bold;">RMB\n in total for Eagle Bucks.</text>
+				</view>
+			</view>
+		</view>
+
+		<view style="width: 95%;height: 350rpx;display: flex;justify-content: space-between;margin-top: 10rpx;">
+			<view style="width: 40%;height: 100%;margin: 10rpx 20rpx;">
+				<image class="img-style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_5.png" mode="aspectFit" style="width: 100%;"></image>
+			</view>
+			<view style="width: 55%;height: 90%;margin-right: 20rpx;margin-top: 20rpx;">
+				<view style="width: 90%;display: flex;justify-content: space-between;margin-left: 20rpx;">
+					<view style="display: flex;flex-direction: column;width: 50%;height: 100%;margin-top: 5rpx;">
+						<image class="qrimg" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/Scan.png" bindtap="scan"></image>
+						<view style="width: 100%;text-align: center;margin-top: 0rpx;font-size: 30rpx;color: #8D605D;font-family: jiansong-bold;">Scan</view>
+					</view>
+					<view style="display: flex;flex-direction: column;width: 50%;height: 100%;">
+						<image class="qrimg" style="width: 100px;height: 170rpx;" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/Buy.png" bindtap="buy"></image>
+						<view style="width: 100%;text-align: center;margin-top: 15rpx;font-size: 30rpx;color: #8D605D;font-family: jiansong-bold;">Buy</view>
+					</view>
+				</view>
+				<view bindtap="tutorial" style="width: 350rpx;display: flex;justify-content: space-between;background-color: #e77b0b;border-radius: 20rpx;margin-top: 15rpx;margin-left: 25rpx;">
+					<view class="notice-content"></view>
+					<view class="notice-content" style="font-size: 40rpx;color: #FFFFFF;margin-left: 60rpx;font-weight: bold;">Tutorial</view>
+					<view class="notice-content" style="margin: 0 0;margin-right: 10rpx;margin-top: 18rpx;">
+						<image style="width:50rpx;height:50rpx;" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/tutorial_right.png"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

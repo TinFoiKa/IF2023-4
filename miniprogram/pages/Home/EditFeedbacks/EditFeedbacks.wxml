@@ -1,0 +1,21 @@
+<!--pages/Home/EditFeedbacks/EditFeedbacks.wxml-->
+<view class="content">
+	<my-top backflag="true" toptitle='Give us feedback'></my-top>
+	<view class = "container">
+		<view class = "feedback">
+			<view id = "give_us_feedback"></view>
+			<view class = "feedbackinput">
+				<textarea bindinput = "FeedbackInput" model:value="{{feedbackContent}}" maxlength="500" placeholder="Please tell us your thoughts" id="feedback_input" />
+			</view>
+			<view id = "text_counter">
+				<text> {{fcr_string}} </text>
+			</view>
+			<button type="primary" disabled="true" style="line-height: 70rpx;font-size: 50rpx;" wx:if="{{send_button_disabled}}"> 
+				<text> Send </text>
+			</button>
+			<button bindtap="send" type="primary" style="background-color: #E77B0B;line-height: 70rpx;font-size: 50rpx;" wx:if="{{!send_button_disabled}}"> 
+				<text> Send </text>
+			</button>
+		</view>
+	</view>
+</view>

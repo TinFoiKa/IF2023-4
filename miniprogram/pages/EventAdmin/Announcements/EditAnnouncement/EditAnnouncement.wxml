@@ -1,0 +1,20 @@
+<!--pages/EventAdmin/Announcements/EditAnnouncement/EditAnnouncement.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Announcement'></my-top>
+    <view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item" style="height: 240rpx;">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Notice content</view>
+					<view class="uni-forms-item__input">
+						<textarea name="introduction" value="{{annObj.notice_content}}" bindinput="inputContent" placeholder="please input notice content" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+					</view>
+				</view>
+				<view class="button-group" >
+					<button type="primary" data-value="0" bindtap="submit" style="width: 40%;font-size: 30rpx;background-color: #1a61bd;">Save</button>
+					<button type="primary" data-value="1" bindtap="submit" style="width: 40%;font-size: 30rpx;background-color: #1a61bd;">Publish</button>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

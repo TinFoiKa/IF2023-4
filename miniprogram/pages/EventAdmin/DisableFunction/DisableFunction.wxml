@@ -1,0 +1,88 @@
+<!--pages/EventAdmin/DisableFunction/DisableFunction.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Disable functions'></my-top>
+    <view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-body">
+					<view class="uni-section-header">
+						<view class="uni-section-line"></view>
+						<view class="uni-section-header__content">Disable functions</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Purchase Eagle Buck status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.payEB_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.payEB_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.payEB_state}}" bindchange="changePayEBStatus"  />
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Use Eagle Buck status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.useEB_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.useEB_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.useEB_state}}" bindchange="changeUseEBStatus"  />
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Transfer Eagle Buck status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.transferEB_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.transferEB_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.transferEB_state}}" bindchange="changeTransferEBStatus"  />
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Dunk Tank status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.dunkTank_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.dunkTank_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.dunkTank_state}}" bindchange="changeDunkTankStatus"  />
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Lucky draw ticket buying status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.luckyDraw_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.luckyDraw_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.luckyDraw_state}}" bindchange="changeLuckyDrawStatus"  />
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Starting lottery status</view>
+					<view style="width: auto;display: flex;justify-content: space-between;">
+						<view>
+							<block wx:if="{{activityEvent.startLottery_state == 0}}"><text style="color: red;">Close</text></block>
+							<block wx:elif="{{activityEvent.startLottery_state == 1}}"><text>Open</text></block>
+						</view>
+						<view>
+							<switch checked="{{activityEvent.startLottery_state}}" bindchange="changeStartLotteryStatus"  />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

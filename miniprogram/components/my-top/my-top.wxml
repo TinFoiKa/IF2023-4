@@ -1,0 +1,33 @@
+<view id="my-top">
+	<block wx:if="{{homeTop}}">
+		<image class="toptitle" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_top.jpg" style="height: 436rpx;"></image>
+		<view class="title">
+			<view>{{toptitle}}</view>
+		</view>
+		<image wx:if="{{backflag}}" class="back" bindtap="backbtn" style="top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/back.png"></image>
+		<image wx:if="{{homeflag}}" class="backhome" bindtap="backhome" style="top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/homeBtn.png"></image>
+	</block>
+	<block wx:if="{{!homeTop}}">
+		<block wx:if="{{!isFixation}}">
+			<image class="toptitle" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/top.png" style="height: 250rpx;"></image>
+			<view class="title">
+				<view>{{toptitle}}</view>
+			</view>
+			<image wx:if="{{backflag}}" class="back" bindtap="backbtn" style="top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/back.png"></image>
+			<image wx:if="{{homeflag}}" class="backhome" bindtap="backhome" style="top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/homeBtn.png"></image>
+		</block>
+		<block wx:if="{{isFixation}}">
+			<image class="toptitle" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/top.png" style="height: 250rpx;position: fixed;z-index: 10;top: 0;"></image>
+			<view class="title" style="position: fixed;top:250rpx">
+				<view>{{toptitle}}</view>
+			</view>
+			<image wx:if="{{backflag}}" class="back" bindtap="backbtn" style="position: fixed;top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/back.png"></image>
+			<image wx:if="{{homeflag}}" class="backhome" bindtap="backhome" style="position: fixed;top: {{customHeightTop}}px;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/homeBtn.png"></image>
+			<view style="height: 250rpx;"></view>
+		</block>
+	</block>
+    <view class="en-select">
+		<view></view>
+        <image class="small" wx:if="{{showSysBtn}}" bindtap="PickerType" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/small.png"></image>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/LuckyDraw/Lottery/Lottery.wxml-->
+<view class="content">
+	<my-top toptitle='Lottery'  backflag="true"></my-top>
+    <view class="container">
+		<view class="credits" style="width: 70%;">
+			<view class="credits-content" style="height: 450rpx;">
+				<image class="img-style" src="{{prize.img_url}}" mode="aspectFit" style="width: 100%;" wx:if="{{prize.img_url != null && prize.img_url != ''}}"></image>
+			</view>
+		</view>
+		
+		<view class="credits" style="margin-top: 70rpx;">
+			<view class="img_right_top" style="margin-bottom: -130rpx;">
+				<image class="img_mascot_style" style="height: 200rpx;width: 200rpx;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_6.png" mode="aspectFit"></image>
+			</view>
+			<view class="credits-title">Countdown：<text style="color: red;font-size: 60rpx;">{{lotteryRemainTime}}</text></view>
+			<view class="credits-content" style="text-align: center;">
+				<view class="result">{{result}}</view>
+			</view>
+		</view>
+		<button class="feedback_btn" disabled="{{disabled}}" bindtap="startLottery" style="height: 180rpx;font-size: 100rpx;">Start</button>
+
+		<view bindtap="back" style="font-size: 60rpx;color: #FFFFFF;font-weight: bold;">Next</view>
+	</view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/BoothLists/Foods/Foods.wxml-->
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Culture Food Booth List</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item">Booth No</view>
+                    <view class="card-actions-item" style="width: 40%;">Booth Name</view>
+                </view>
+			</view>
+			<view class="uni-card__actions" wx:for="{{foodList}}" wx:key="this" bindtap="foodMenu" data-value="{{item.booth_ID}}" data-no="{{item.booth_no}}" data-name="{{item.booth_name}}" style="font-size: 30rpx;">
+				<view class="card-actions">
+					<view class="card-actions-item" style="color:#2979ff">{{item.booth_no}}</view>
+					<view class="card-actions-item" style="width: 40%;">{{item.booth_name}}</view>
+				</view>
+			</view>
+			<block wx:if="{{foodList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>

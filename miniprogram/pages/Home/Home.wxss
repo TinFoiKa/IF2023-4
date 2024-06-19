@@ -1,0 +1,93 @@
+/* pages/Home/Home.wxss */
+.credits-video{
+	width: 95%;
+	height: 400rpx;
+	margin: 10rpx 2.5%;
+	border-radius: 15rpx;
+	background-color: #FFFFFF;
+}
+.credits-map{
+	width: 95%;
+	min-height: 400rpx;
+	margin: 10rpx 2.5%;
+	border-radius: 15rpx;
+	/* background-color: #FFFFFF; */
+}
+.feedback_btn{
+	width: 50%;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #E77B0B;
+	border-radius: 15rpx;
+	margin-top: 100rpx;
+	margin-bottom: 30rpx;
+	font-family: arial-bold;
+}
+
+
+
+
+
+
+
+
+
+.map-content{
+    height: 320rpx;
+    width: 95%;
+	/* background-color: blueviolet; */
+	background-color:rgb(255, 255, 255);
+	border-radius: 15rpx;
+  }
+  /* .credits-title{
+    width: 90%;
+  } */
+  /* .credits-content{
+    width: 95%;
+    margin: 10rpx 40rpx;
+    height: 280rpx;
+	background-color:rgb(255, 255, 255);
+	border-radius: 15rpx;
+  } */
+  .feed-title{
+  
+    width: 90%;
+  }
+  .feed-content{
+    width: 90%;
+    margin: 0 40rpx;
+    height: 280rpx;
+    background-color: rgb(4, 99, 94);
+  }
+
+  /* 文字滚动*/
+  .box{
+	/* background-color: #fffbd6; */
+	position: relative;
+	width: 90%;
+	height: 30rpx;
+	line-height: 30rpx;
+	overflow: hidden;
+
+	display: flex;
+    justify-content: flex-start;
+  }
+  
+  #txt{
+	position: relative;
+	white-space: nowrap;
+	transition: left 1s linear;
+	color: red;
+	font-size: 30rpx;
+  }
+
+  .flex-box{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+  }
+  
+  @keyframes roll {
+	0% {left: 120%;}
+	100% {left: -200%;}
+  }

@@ -21,40 +21,17 @@ Component({
     }
   },
   methods: {
-    onCheckEnv(){
-      wx.showLoading({
-        title: '',
-      });
-      wx.cloud
-        .callFunction({
-          name: 'quickstartFunctions',
-          data: {
-            type: 'getOpenId',
-          },
-        })
-        .then(() => {
-          wx.hideLoading();
-          this.setData({
-            showUploadTip: !this.data.showUploadTip
-          });
-        })
-        .catch((e) => {
-          // 报错信息提示环境不存在
-          wx.hideLoading();
-          if(e.message.includes('env not exists') || e.message.includes('Environment not found') || e.message.includes('env check invalid be filterd')){
-            wx.showToast({
-              title: '环境未找到',
-              icon: 'error',
-              duration: 2000
-            })
-          }
-        });
-    },
-
-    onCheckEnvCancel(){
+    onChangeShowUploadTip() {
       this.setData({
         showUploadTip: !this.data.showUploadTip
       });
     },
+
+    copyShell() {
+      wx.setClipboardData({
+        data: this.data.tipText,
+      });
+    },
   }
+
 });

@@ -1,0 +1,64 @@
+<!--pages/EventAdmin/EventAdmin.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Event Admin'></my-top>
+    <view style="background-color: #fff;padding-left: 40rpx;padding-top: 30rpx;">
+        <text class="user-motto">Event Admin:</text>
+    </view>
+    <view class="uni-list">
+        <view class="uni-list-cell" bindtap="toBoothManager">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+					<view class="uni-media-list-text-top">Event Setting</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+        <view class="uni-list-cell" bindtap="toBoothAuthorization">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Booth Mgr.Authorization</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+        <view class="uni-list-cell" bindtap="toAnnouncement">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Announcements</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell" bindtap="toDisableFunction">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+					<view class="uni-media-list-text-top">Disable functions</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+		<view class="uni-list-cell" bindtap="toDisableAccountList">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Disable user accounts</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+        <view class="uni-list-cell" bindtap="toFinancialStatement">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top" style="color:rgb(214, 214, 214);">Financial Statements</view>
+                </view>
+            </view>
+        </view>
+        <view class="uni-list-cell" bindtap="toFeedback">
+            <view class="uni-media-list">
+                <view class="uni-media-list-body">
+                    <view class="uni-media-list-text-top">Feedbacks</view>
+                </view>
+                <image class="uni-media-go" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/right.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

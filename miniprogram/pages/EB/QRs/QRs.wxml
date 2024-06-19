@@ -1,0 +1,64 @@
+<!--pages/EB/QRs/QRs.wxml-->
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header" style="width: 60%;padding-right: 0px;">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">My Bracelets:</view>
+                </view>
+                <view class="describe" style="margin-bottom: 20rpx;">One account can link max. {{braceletMaxCount}} QR Codes</view>
+            </view>
+            <view class="uni-card__actions">
+                <view class="card-actions" style="font-size: 30rpx;">
+                    <view class="card-actions-item" style="width: 8%;">No.</view>
+                    <view class="card-actions-item" style="width: 15%;">BLID</view>
+                    <view class="card-actions-item" style="width: 40%;">Alias</view>
+                    <view class="card-actions-item" style="width: 10%;"></view>
+                    <view class="card-actions-item" style="width: 10%;">Status</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" wx:for="{{myQrList}}" wx:key="this" wx:index="index">
+                <view class="card-actions" style="font-size: 30rpx;">
+					<view class="card-actions-item" style="width: 8%;">{{index+1}}</view>
+                    <view class="card-actions-item" style="width: 15%;" data-value="{{item.qr_link}}" bindtap="showQrcode">B{{item.bl_ID}}</view>
+                    <view class="card-actions-item" style="width: 40%;" data-value="{{item.qr_link}}" data-alias="{{item.qr_name}}" bindtap="updateQRName"><view class="fa fa-pencil"></view>{{item.qr_name}}</view>
+                    <view class="card-actions-item" style="width: 10%;">
+                        <switch checked="{{item.is_active}}" data-openid="{{item.linked_open_id}}" data-linkid="{{item.qr_link}}" bindchange="changeStatus" style="zoom: .6;" />
+                    </view>
+					<view class="card-actions-item" style="width: 10%;">
+						<block wx:if="{{item.is_active == 0}}">Disabled</block>
+						<block wx:if="{{item.is_active == 1}}">Bound</block>
+					</view>
+                </view>
+			</view>
+			<block wx:if="{{myQrList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+        </view>
+    </view>
+</view>
+
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+    <view aria-role="dialog" aria-modal="true" class="fadeIn" wx:if="{{iosDialog}}">
+        <view class="weui-mask"></view>
+        <view class="weui-dialog">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">Enter Alias</strong></view>
+            <view class="weui-dialog__bd">
+				<view class="uni-forms-item__input">
+					<input style="width: 100%;" value="{{updateAlias}}" bindinput="updateAliasInput" maxlength="15" focus="true" />
+				</view>
+				<text style="font-size: 25rpx;color: red;">{{errorMsg}}</text>
+			</view>
+            <view class="weui-dialog__ft">
+                <button aria-role="button" class="weui-dialog__btn weui-dialog__btn_default" bindtap="closeIOS">Cancel</button>
+                <view aria-role="button" class="weui-dialog__btn weui-dialog__btn_primary" bindtap="confirmIOS">Ok</view>
+            </view>
+        </view>
+    </view>
+</view>

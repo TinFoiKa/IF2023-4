@@ -1,0 +1,19 @@
+<!--pages/EventAdmin/BoothManager/ViewSponsorDetail/ViewSponsorDetail.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Sponsor Detail'></my-top>
+	<view class="uni-card__content" style="padding: 10px;">
+		<view class="uni-body">
+			<view class="uni-section-header">
+				<view class="uni-section-line"></view>
+				<view class="uni-section-header__content">{{companyName}}</view>
+			</view>
+		</view>
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<text style="width: 100%;height: 100%;margin-top: 10rpx;">{{description}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

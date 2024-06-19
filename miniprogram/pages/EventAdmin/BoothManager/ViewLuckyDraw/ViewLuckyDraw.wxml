@@ -1,0 +1,72 @@
+<!--pages/EventAdmin/BoothManager/ViewLuckyDraw/ViewLuckyDraw.wxml-->
+<wxs module="fmt" src="../../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='View Lucky Draw'></my-top>
+    <view class="container">
+		<view class="uni-list">
+			<view class="uni-body">
+				<view class="uni-section-header">
+					<view class="uni-section-line"></view>
+					<view class="uni-section-header__content">Lucky Draw Activity</view>
+				</view>
+				<view class="uni-content-right">
+					<view class="uni-content-no">
+						<button class="fa fa-pencil" type="primary" size="mini" bindtap="EditLuckyDraw" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Activities Name</view>
+					<view class="uni-forms-item__input">{{luckyDraw.booth_name}}</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Lottery time</view>
+					<view class="uni-forms-item__input">{{fmt.formatDate_yyyyMMddHHmmss(luckyDraw.drawprize_time)}}</view>
+				</view>
+			</view>
+			<view class="uni-body">
+				<view class="uni-section-header">
+					<view class="uni-section-line"></view>
+					<view class="uni-section-header__content">Activity Prize List</view>
+				</view>
+				<view class="uni-content-right">
+					<view class="uni-content-no">
+						<button class="fa fa-upload" type="primary" size="mini" bindtap="ImportLuckyDrawPrize" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+						<button class="fa fa-plus" type="primary" size="mini" bindtap="EditLuckyDrawPrize" style="font-size: 35rpx;margin-left: 10rpx;background-color: #1a61bd;"></button>
+					</view>
+				</view>
+			</view>
+			<view class="uni-list-cell" wx:for="{{prizeList}}" wx:key="this">
+				<view class="uni-media-list">
+					<view class="uni-media-list-logo" style="height: 250rpx;">
+						<view style="width: 100%;height: 100%;" bindtap="uploadImage" data-prizeid="{{item.prize_ID}}">
+							<block wx:if="{{item.img_url != ''}}">
+								<image src="{{item.img_url}}" mode="aspectFit" style="width: 100%;height: 100%;"></image>
+							</block>
+						</view>
+					</view>
+					<view class="uni-media-list-body">
+						<view class="uni-media-list-text-top">{{item.prize_name}}</view>
+						<view class="uni-media-list-text-bottom" wx:if="{{item.prize_value != ''}}">
+							<view class="uni-media-list-text-bottom">￥：{{item.prize_value}}</view>
+						</view>
+					</view>
+					<view style="font-size: 30rpx;margin-right: 30rpx;display: flex;flex-direction: column;">
+						<button class="fa fa-pencil" data-prizeid="{{item.prize_ID}}" bindtap="EditLuckyDrawPrize" style="width: auto;"></button>
+						<button class="fa fa-trash" data-prizeid="{{item.prize_ID}}" data-imgUrl="{{item.img_url}}" bindtap="DeleteLuckyDrawPrize" style="width: auto;margin-top: 10rpx;"></button>
+					</view>
+				</view>
+			</view>
+			<block wx:if="{{prizeList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+		</view>
+    </view>
+</view>

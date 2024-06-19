@@ -1,0 +1,71 @@
+<!--pages/LuckyDraw/Draw/Draw.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Lucky Draw {{luckyDraw.booth_name}}</view>
+                </view>
+            </view>
+            <view class="uni-card__actions" style="font-size: 30rpx;">
+                <view class="card-actions">
+                    <view class="card-actions-item" style="width:50%;">Choices</view>
+                    <view class="card-actions-item" style="width:20%;">Price(RMB)</view>
+                    <view class="card-actions-item" style="width:30%;margin-left: 20rpx;">Available till</view>
+                </view>
+            </view>
+			<radio-group>
+				<view class="uni-card__actions" wx:for="{{commodityList}}" wx:key="this" style="font-size: 30rpx;">
+					<view class="card-actions">
+						<view class="card-actions-item" style="width:50%">
+							<block wx:if="{{(fmt.formatDate_yyyyMMddHHmmss(item.startDate) <= newDate) && (fmt.formatDate_yyyyMMddHHmmss(item.endDate) > newDate)}}">
+								<radio bindtap="changeRadio" data-number="{{item.number}}" data-price="{{item.price}}" />
+							</block>
+							<block wx:else>
+								<radio disabled="true" />
+							</block>
+							{{item.name}}
+						</view>
+						<view class="card-actions-item" style="width:20%"><text style="width: 100%;text-align: center;">{{fmt.formatNumber(item.price, 0)}}</text></view>
+						<view class="" style="width:30%;color: #2979ff;">
+							<block wx:if="{{fmt.formatDate_yyyyMMddHHmmss(item.startDate) > newDate}}">
+								{{fmt.formatDate_MMddHHmm(item.startDate)}}<view style="width: 100%;text-align: center;"><text>\r</text></view>
+							</block>
+							{{fmt.formatDate_MMddHHmm(item.endDate)}}
+						</view>
+					</view>
+				</view>
+			</radio-group>
+        </view>
+    </view>
+	<view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item" style="width: 70%;padding-left: 100rpx;">
+					<view style="display: flex;flex-direction: row;">
+						<view style="margin: 20rpx 30rpx;">Qty.</view>
+						<view class="uni-forms-item__input">
+							<input class="input-label" type="number" value="{{inputNumber}}" bindinput="changeNumber" bindblur="blurNumber" maxlength="5" placeholder="Number" style="text-align: center;" />
+						</view>
+						<view style="margin: 10rpx 0rpx 30rpx;">= <text style="font-size: 50rpx;color: red;">{{ebTotal}}</text> Ticket</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view style="display: flex;justify-content: space-around;">
+						<view style="margin: 20rpx 30rpx;">Total Payment</view>
+						<view >
+							<text style="font-size: 50rpx;color: red;">{{totalPrice}}</text>
+						</view>
+						<view style="margin: 20rpx 30rpx;">RMB</view>
+					</view>
+				</view>
+				<view class="button-group">
+					<button type="primary" bindtap="submit" style="width: 40%;background-color: #E77B0B;">Pay</button>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

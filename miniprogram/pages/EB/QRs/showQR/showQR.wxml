@@ -1,0 +1,10 @@
+<!--pages/EB/QRs/showQR/showQR.wxml-->
+<view class="content">
+    <my-top backflag="true" toptitle=''></my-top>
+    <view style="width: 100%;margin-top: 50rpx;">
+        <canvas type="2d" style="width:260px;height: 260px;position: relative;left:0;right:0;margin:0 auto;" id="myQrcode"></canvas>
+    </view>
+    <view style="height: 50px;width: 100%;text-align: center;margin-top: 30rpx;">
+		<text style="font-size: 30rpx;">{{bracelet.bl_ID}}</text>
+    </view>
+</view>

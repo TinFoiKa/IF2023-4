@@ -1,0 +1,85 @@
+/* pages/BoothLists/Foods/Foods.wxss */
+.uni-card--shadow{
+    position: relative;
+    box-shadow: 0 0 6px 1px hsla(0,0%,64.7%,.2);
+  }
+  
+  .uni-card--border{
+    border: 1px solid #ebeef5;
+  }
+  
+  .uni-card{
+    margin: 10px;
+    padding: 0 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    background-color: #EDF3F7;
+    flex: 1;
+  }
+  .uni-card-ul{
+    overflow: hidden;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    background-color: #fff;
+    flex: 1;
+  }
+  .uni-card .uni-card__content{
+    padding: 10px;
+    font-size: 14px;
+    color: #6a6a6a;
+    line-height: 22px;
+  }
+  .uni-body {
+    font-size: 14px;
+    font-weight: 400;
+	line-height: 22px;
+	
+	display: flex;
+    justify-content: space-between;
+  }
+  .uni-card .uni-card__actions{
+    font-size: 12px;
+  }
+  .uni-section-header{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 20px;
+    font-weight: 400;
+  }
+  .uni-section-line{
+    width: 4px;
+    height: 18px;
+    border-radius: 10px;
+    margin-right: 6px;
+    background-color: #2979ff;
+  }
+  .uni-section-header__content{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: #333;
+    font-size: 40rpx;
+  }
+  .card-actions-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	width: 25%;
+  }
+  .card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 70px;
+    border-top: 1px #eee solid;
+  }
+
+  .uni-content-right{
+    display: flex;
+    flex-direction: column;
+    margin-right: 30rpx;
+    margin-top: 20rpx;
+  }

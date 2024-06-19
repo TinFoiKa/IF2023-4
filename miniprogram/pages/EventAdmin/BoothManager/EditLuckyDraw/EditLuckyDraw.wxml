@@ -1,0 +1,29 @@
+<!--pages/EventAdmin/BoothManager/EditLuckyDraw/EditLuckyDraw.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Lucky Draw'></my-top>
+    <view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Activity Name</view>
+					<view class="uni-forms-item__input">
+						<input class="input-label" name="boothName" value="{{boothName}}" maxlength="200" bindinput="boothNameInput" style="width: 100%;" placeholder="Please input the activity name" />
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Lottery time</view>
+					<view style="display: flex;justify-content: space-around;">
+						<view class="uni-forms-picker" style="width: 100%;">
+							<picker mode="multiSelector" value="{{startDate}}" data-type="startDate" data-param='startDate_p' bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+								<view class="picker-item">{{startDate_p}}</view>
+							</picker>
+						</view>
+					</view>
+				</view>
+				<view class="button-group">
+					<button type="primary" bindtap="submitForm" style="width: 40%;background-color: #1a61bd;">Save</button>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

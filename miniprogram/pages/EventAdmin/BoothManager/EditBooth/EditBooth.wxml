@@ -1,0 +1,34 @@
+<!--pages/EventAdmin/BoothManager/EditBooth/EditBooth.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit Booth'></my-top>
+    <view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Booth No</view>
+					<view class="uni-forms-item__input">
+						<input class="input-label" model:value="{{boothNo}}" maxlength="200" style="width: 100%;" placeholder="Please input the Booth No" />
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Booth Name</view>
+					<view class="uni-forms-item__input">
+						<input class="input-label" model:value="{{boothName}}" maxlength="200" style="width: 100%;" placeholder="Please input the Booth Name" />
+					</view>
+				</view>
+				<view class="uni-forms-item" style="height: 240rpx;">
+					<view class="uni-forms-item__label">Organization</view>
+					<view class="uni-forms-item__input">
+						<textarea name="foodDesc" model:value="{{boothOrganization}}" placeholder="please input Organization" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+					</view>
+				</view>
+				<view class="button-group">
+					<button type="primary" bindtap="submit" style="width: 40%;background-color: #1a61bd;">Submit</button>
+				</view>
+				<view class="button-group">
+					<text style="color: red;">{{errorMsg}}</text>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

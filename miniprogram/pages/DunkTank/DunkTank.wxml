@@ -1,0 +1,67 @@
+<!--pages/DunkTank/DunkTank.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" isFixation="true" toptitle=''></my-top>
+    <view class="uni-card uni-card--shadow uni-card--border">
+        <view class="usermotto" style="height: auto;min-height: 460rpx;">
+			<view>
+				<view class="dk-pt" wx:if="{{dunkTank.dunked_url != ''}}" style="float: right;width: 30%;margin-top: 10rpx;margin-left: 10rpx;margin-right: 10rpx;">
+                	<image mode="aspectFit" src="{{dunkTank.dunked_url}}" data-url="{{dunkTank.dunked_url}}" style="width: 100%;height: 100%;"></image>
+				</view>
+                <view style="margin: 10rpx 20rpx;">
+                    <text class="user-motto" style="font-size: 34rpx;margin-left: 0rpx;">{{dunkTank.dunked_guy}}\r\n</text>
+                    <text class="user-content" style="margin-left: 0rpx;color:#000;">Introduction:</text>
+                    <view space="nbsp" style="word-wrap: break-word;color:rgb(49, 46, 46);">{{dunkTank.dunked_Introduction}}</view>
+                </view>
+            </view>
+            <text class="user-content"></text>
+        </view>
+		<view style="margin-top: 20rpx;">
+			<view style="float: left;">Photos</view>
+			<view style="float: right;text-align: right;" wx:if="{{isBoothManager }}">
+				<block wx:if="{{isBatchDeletePhoto}}">
+					<button type="primary" size="mini" bindtap="confirmBatchDeleteDunkPhoto" style="font-size: 30rpx;margin-right: 10rpx;background-color: #E77B0B;">Delete</button>
+					<button type="primary" size="mini" bindtap="cancelBatchDelete" style="font-size: 30rpx;margin-right: 10rpx;background-color: #E77B0B;">Cancel</button>
+				</block>
+				<block wx:else>
+					<button type="primary" size="mini" bindtap="batchDeleteDunkPhoto" style="font-size: 30rpx;margin-right: 10rpx;background-color: #E77B0B;">Batch Delete</button>
+				</block>
+				<button type="primary" size="mini" bindtap="uploadDunkPhoto" style="font-size: 30rpx;background-color: #E77B0B;">upload</button>
+			</view>
+		</view>
+        <view class="dk-table">
+			<block wx:if="{{dunkTankPhotoList.length > 0}}">
+				<checkbox-group class="dk-table" bindchange="checkBoxPhotoChange">
+					<view class="dk-col" wx:for="{{dunkTankPhotoList}}" wx:key="this">
+						<view class="dk-img">
+							<image src="{{item.file_url}}" style="width: 100%;height: 100%;"></image>
+							<view wx:if="{{isBatchDeletePhoto}}" style="margin-top: -65rpx;margin-right: -160rpx;">
+								<checkbox value="{{item.ID}}" checked="{{item.checked}}" />
+							</view>
+						</view>
+					</view>
+				</checkbox-group>
+			</block>
+            <block wx:else>
+				<view class="dk-col" wx wx:for="{{emptyPhotoList}}" wx:key="this">
+					<image class="dk-img" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/icon_empty.png"></image>
+				</view>
+			</block>
+        </view>
+        <view style="display: flex;flex-direction: column;">
+            <text class="user-motto" style="font-size: 34rpx;">My Dunk Tank Payments</text>
+            <text class="user-content" style="color:#000;">I have already paid: <text style="color:red;font-size: 50rpx;">{{fmt.formatNumber(paidMoney, 0)}}</text> RMB</text>
+        </view>
+
+		<view style="margin-top: 50rpx;margin-bottom: 100rpx;display: flex;justify-content: center;">
+			<view style="margin-top: -30rpx;margin-right: 20rpx;">
+				<image mode="widthFix" style="width: 200rpx;" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_5.png"></image>
+			</view>
+			<view>
+				<button class="dk-btn" disabled="true" wx:if="{{disabled}}">Pay</button>
+				<button class="dk-btn" bindtap="dunk" wx:if="{{!disabled}}">Pay</button>
+				<button class="dk-btn" bindtap="tutorial">Tutorial</button>
+			</view>
+		</view>
+    </view>
+</view>

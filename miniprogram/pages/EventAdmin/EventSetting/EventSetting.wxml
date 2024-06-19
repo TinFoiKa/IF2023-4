@@ -1,0 +1,184 @@
+<!--pages/EventAdmin/EventSetting/EventSetting.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Event Setting'></my-top>
+    <view class="container">
+        <scroll-view scroll-y="true" style="height: {{xheight}}">
+            <form bindsubmit="submitForm">
+                <view class="uni-section-content">
+                    <view class="uni-forms">
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Name of the Event</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="eventName" value="{{activityEvent.name}}" maxlength="200" style="width: 100%;" placeholder="Please input the activity name" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item" style="min-height: 150rpx;">
+                            <view class="uni-forms-item__label">Video（GIF）</view>
+                            <view wx:if="{{newVideoFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newVideoFileName}}</view>
+                                <view wx:if="{{videoProgress}}" style="margin-left: 10px;">{{videoProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeVideoFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadVideo" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+                        <view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">introduction</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="introduction" value="{{activityEvent.introduction}}" placeholder="please input introduction" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Venue</view>
+                            <view class="uni-forms-item__input">
+                                <input class="input-label" name="venue" value="{{activityEvent.venue}}" maxlength="200" style="width: 100%;" placeholder="please input venue" />
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Map</view>
+                            <view wx:if="{{newMapFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newMapFileName}}</view>
+                                <view wx:if="{{mapProgress}}" style="margin-left: 10px;">{{mapProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeMapFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadMap" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+                        <view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Commendation</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="credits" value="{{activityEvent.credits}}" placeholder="please input Commendation" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>Start date / time</view>
+                            <view style="display: flex;justify-content: space-around;">
+                                <view class="uni-forms-picker" style="width: 100%;">
+                                    <picker mode="date" name="startDate" value="{{startDate}}" bindchange="bindStartDateChange">
+                                        <view class="picker-item">{{startDate}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="uni-forms-item">
+                            <view class="uni-forms-item__label"><span style="color: red;">*</span>End date / time</view>
+                            <view style="display: flex;justify-content: space-around;">
+                                <view class="uni-forms-picker" style="width: 100%;">
+                                    <picker mode="date" name="endDate" value="{{endDate}}" bindchange="bindEndDateChange">
+                                        <view class="picker-item">{{endDate}}</view>
+                                    </picker>
+                                </view>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Food</view>
+                            <view wx:if="{{newFoodFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newFoodFileName}}</view>
+                                <view wx:if="{{foodProgress}}" style="margin-left: 10px;">{{foodProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeFoodFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadFood" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Food Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="foodDesc" value="{{activityEvent.foodDesc}}" placeholder="please input Food Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Game</view>
+                            <view wx:if="{{newGameFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newGameFileName}}</view>
+                                <view wx:if="{{gameProgress}}" style="margin-left: 10px;">{{gameProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeGameFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadGame" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Game Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="gameDesc" value="{{activityEvent.gameDesc}}" placeholder="please input Game Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Main Stage Performances</view>
+                            <view wx:if="{{newPerformancesMainFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newPerformancesMainFileName}}</view>
+                                <view wx:if="{{performancesMainProgress}}" style="margin-left: 10px;">{{performancesMainProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removePerformancesMainFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadPerformancesMain" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Main Stage Performances Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="performancesMainDesc" value="{{activityEvent.performancesMainDesc}}" placeholder="please input Main Stage Performances Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Hillside Stage Performances</view>
+                            <view wx:if="{{newPerformancesHillsideFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newPerformancesHillsideFileName}}</view>
+                                <view wx:if="{{performancesHillsideProgress}}" style="margin-left: 10px;">{{performancesHillsideProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removePerformancesHillsideFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadPerformancesHillside" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Hillside Stage Performances Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="performancesHillsideDesc" value="{{activityEvent.performancesHillsideDesc}}" placeholder="please input Hillside Stage Performances Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Vendor</view>
+                            <view wx:if="{{newVendorFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newVendorFileName}}</view>
+                                <view wx:if="{{vendorProgress}}" style="margin-left: 10px;">{{vendorProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeVendorFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadVendor" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Vendor Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="vendorDesc" value="{{activityEvent.vendorDesc}}" placeholder="please input Vendor Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Student Market Place</view>
+                            <view wx:if="{{newStudentMarketPlaceFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newStudentMarketPlaceFileName}}</view>
+                                <view wx:if="{{studentMarketPlaceProgress}}" style="margin-left: 10px;">{{studentMarketPlaceProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeStudentMarketPlaceFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadStudentMarketPlace" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Student Market Place Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="studentMarketPlaceDesc" value="{{activityEvent.studentMarketPlaceDesc}}" placeholder="please input Student Market Place Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+						<view class="uni-forms-item">
+                            <view class="uni-forms-item__label">Sponsor</view>
+                            <view wx:if="{{newSponsorFileName}}" style="display:flex;justify-content: start;margin-left: 10px;margin-bottom: 5px;">
+                                <view>{{newSponsorFileName}}</view>
+                                <view wx:if="{{sponsorProgress}}" style="margin-left: 10px;">{{sponsorProgress}}%</view>
+                                <view class="fa fa-times" bindtap="removeSponsorFile" style="font-size: 15px;margin-left: 10px;margin-right: 10px;"></view>
+                            </view>
+                            <button class="uni-forms-item__button" type="primary" size="mini" bindtap="uploadSponsor" style="margin-left: 30rpx;margin-right: auto;background-color: #1a61bd;">upload</button>
+                        </view>
+						<view class="uni-forms-item" style="height: 240rpx;">
+                            <view class="uni-forms-item__label">Sponsor Description</view>
+                            <view class="uni-forms-item__input">
+                                <textarea name="sponsorDesc" value="{{activityEvent.sponsorDesc}}" placeholder="please input Sponsor Description" maxlength="-1" style="height: 150rpx;width: 100%;" placeholder-class='texts'></textarea>
+                            </view>
+                        </view>
+                        <view class="button-group">
+                            <button type="primary" form-type="submit" style="width: 40%;background-color: #1a61bd;">Save</button>
+                        </view>
+                    </view>
+                </view>
+            </form>
+        </scroll-view>
+    </view>
+</view>

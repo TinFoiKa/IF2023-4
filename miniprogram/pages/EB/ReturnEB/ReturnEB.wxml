@@ -1,0 +1,56 @@
+<!--pages/EB/ReturnEB/ReturnEB.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" toptitle='Booth Refund'></my-top>
+    <view class="container">
+        <view style="width: 100%;font-size: 40rpx;">
+			<view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+				<view style="margin-top: 10rpx;">Booth No: {{boothData.booth_no}}</view>
+				<view style="margin-top: 10rpx;">{{boothData.booth_name}}</view>
+			</view>
+            <view style="margin: 10px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+                Enter the quantity of the Buck(s)
+            </view>
+            <view style="margin: 0px auto;width: 95%;display: flex;justify-content: center;flex-wrap: wrap;">
+				<view style="width: 400rpx;position: relative;line-height: 1;font-size: 14px;height: 80rpx;display: flex;align-items: center;box-sizing: border-box;flex-direction: row;align-items: center;border: 1px solid #dcdfe6;border-radius: 4px;padding-left: 20rpx;">
+                    <input class="input-label" type="number" value="{{inputNumber}}" bindinput="changeNumber" bindblur="blurNumber" maxlength="5" placeholder="Number" style="text-align: center;width: 90%;font-size: 50rpx;color: red;" />
+                </view>
+                <view style="height: 80rpx;display: flex;align-items: center;margin-left: 10px;">
+                    <view style="margin-left: 10px;">Buck(s)</view>
+                </view>
+            </view>
+        </view>
+        <view class="button-group" style="margin-top: 40rpx;">
+            <view class="uni-forms-item__button" bindtap="submit" style="width: 40%; border-radius: 8rpx;background-color: #E77B0B;">Submit</view>
+            <view class="uni-forms-item__button" bindtap="cancel" style="width: 40%; border-radius: 8rpx;background-color: #E77B0B;">Cancel</view>
+        </view>
+    </view>
+	<view class="uni-card-ul uni-card--shadow uni-card--border">
+		<view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+			<view style="margin-top: 10rpx;">Shopping Records</view>
+		</view>
+		<view class="uni-card__content" style="padding: 10px;">
+			<view class="uni-card__actions" style="font-size: 30rpx;">
+				<view class="card-actions">
+					<view class="card-actions-item">No.</view>
+					<view class="card-actions-item">Buck(s)</view>
+					<view class="card-actions-item" style="width: 45%;">Time</view>
+				</view>
+			</view>
+			<view class="uni-card__actions" wx:for="{{shoppingRecordList}}" wx:key="this">
+				<view class="card-actions" style="font-size: 30rpx;">
+					<view class="card-actions-item">{{index+1}}</view>
+					<view class="card-actions-item">{{item.eb_number}}</view>
+					<view class="card-actions-item" style="width: 45%;">{{fmt.formatDate_yyyyMMddHHmmss(item.datetime)}}</view>
+				</view>
+			</view>
+			<block wx:if="{{shoppingRecordList.length == 0}}">
+				<view class="page__bd">
+					<view class="weui-loadmore weui-loadmore_line">
+						<text class="weui-loadmore__tips">No data</text>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>

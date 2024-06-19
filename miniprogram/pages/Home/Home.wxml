@@ -1,0 +1,84 @@
+<!--pages/Home/Home.wxml-->
+<wxs module="fmt" src="../../utils/format.wxs"></wxs>
+<view class="content" style="width: 100%;overflow-x: hidden;">
+	<my-top toptitle='' homeTop="true"></my-top>
+    <view class="container">
+		<view class="credits">
+			<view class="img_left_top">
+				<image class="img_mascot_style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_1.png" mode="aspectFit"></image>
+			</view>
+			<view class="credits-title" style="margin-top: -70rpx;font-family: jiansong-regular;">Announcement</view>
+			<view wx:if="{{TopAnnouncement.length > 0}}" style="width: 95%;height: 70rpx;margin: 5rpx 2.5%;border-radius: 15rpx;background-color: #FFFFFF;position: relative;display: flex;justify-content: flex-start;">
+				<view style="width: 100%;line-height: 70rpx;margin: 5rpx 0rpx;overflow: hidden;">
+					<view id='txt' style='animation: roll linear {{duration}}s infinite;position: relative;white-space: nowrap;transition: left 1s linear;color: #8D605D;font-size: 25rpx;'>
+						{{TopAnnouncement}}
+					</view>
+				</view>
+				<view style="width: 110rpx;height: 140rpx;z-index: 1;margin-top: -30rpx;margin-right: -55rpx;">
+					<image src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/nail.png" mode="aspectFit" style="height: 100%;width: 100%;"></image>
+				</view>
+			</view>
+			<view class="notice">
+				<scroll-view scroll-y="true" style="height: 300rpx;">
+					<view wx:for="{{AnnouncementList}}" wx:key="this" class="notice-content">
+						<text style="color: red;">[{{fmt.formatDate_yyyyMMddHHmmss(item.release_time)}}]</text>
+						<text>\r\n</text>{{item.notice_content}}
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view style="width: 100%;min-height: 430rpx;margin: 0rpx 0rpx;">
+				<image mode="widthFix" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/frame.png" style="width: 90%;height: 100%;position: absolute;z-index: 2;"></image>
+				<image mode="widthFix" src="{{videoUrl}}" wx:if="{{videoUrl != ''}}" style="width: 90%;height: 100%;position: absolute;z-index: 1;margin-top: 20rpx;"></image>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="font-family: jiansong-regular;">Event Introduction</view>
+			<view class="credits-content">
+				<view class="notice-content">
+					<text decode="true">{{activityEvent.introduction}}</text>
+				</view>
+			</view>
+			<view class="credits-title2" style="font-family: jiansong-regular;">Venue</view>
+			<view class="credits-content" style="min-height: 70rpx;display: flex;flex-direction: column;justify-content: center;">
+				<view class="notice-content" style="line-height: 40rpx;">
+					<text decode="true">{{activityEvent.venue}}</text>
+				</view>
+			</view>
+			<view class="img_right_top" style="margin-top: -140rpx;">
+				<image class="img_mascot_style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_2.png" mode="aspectFit" style="z-index: 3;"></image>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="credits-title" style="font-family: jiansong-regular;">Map</view>
+			<view class="credits-map">
+				<image class="img-style" mode="widthFix" src="{{mapUrl}}" wx:if="{{mapUrl != ''}}"></image>
+			</view>
+		</view>
+
+		<view class="credits">
+			<view class="img_center_top">
+				<image class="img_flower_style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/flower.png" mode="widthFix"></image>
+			</view>
+			<view class="credits-title" style="margin-top: -110rpx;font-family: jiansong-regular;">Commendation</view>
+			<view class="credits-content">
+				<view class="notice-content" style="line-height: 40rpx;">
+					<text decode="true">{{activityEvent.credits}}</text>
+				</view>
+			</view>
+			<view class="img_right_top" style="margin-bottom: -70rpx;">
+				<image class="img_mascot_style" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/home_3.png" mode="aspectFit"></image>
+			</view>
+		</view>
+
+		<button class="feedback_btn" bindtap="toEditFeedbacks" style="width: 70%;font-size: 60rpx;">Feedback</button>
+
+		<view style="width: 90%;height: 40rpx;margin-bottom: 30rpx;">
+			<image class="img-style" mode="aspectFit" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/bottom.png"></image>
+		</view>
+    </view>
+</view>

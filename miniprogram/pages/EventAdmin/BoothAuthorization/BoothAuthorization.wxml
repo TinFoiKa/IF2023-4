@@ -1,0 +1,66 @@
+<!--pages/EventAdmin/BoothAuthorization/BoothAuthorization.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Booth Mgr.Authorization'></my-top>
+    <view class="uni-card-ul uni-card--shadow uni-card--border">
+        <view class="uni-card__content" style="padding: 10px;">
+            <view class="uni-body">
+                <view class="uni-section-header">
+                    <view class="uni-section-line"></view>
+                    <view class="uni-section-header__content">Booth Mgr.Authorization</view>
+				</view>
+				<view class="uni-content-right"> 
+					<view class="uni-content-no">
+						<button class="fa fa-upload" type="primary" size="mini" bindtap="importBoothMgr" style="background-color: #1a61bd;font-size: 35rpx;"></button>
+					</view>
+				</view>
+			</view>
+			<view class="uni-card__actions">
+				<view class="card-actions">
+					<view class="card-actions-item" style="width:70%">
+						<input style="border: 1px solid;font-size: 30rpx;width: 100%;" model:value="{{searchInp}}" placeholder="Booth No/Booth Name" />
+					</view>
+					<view class="card-actions-item">
+						<button type="primary" size="mini" bindtap="searchBtn" style="background-color: #1a61bd;font-size: 30rpx;">Search</button>
+					</view>
+				</view>
+			</view>
+            <view class="uni-card__actions">
+                <view class="card-actions">
+                    <view class="card-actions-item">Booth No</view>
+                    <view class="card-actions-item">Booth Name</view>
+                    <view class="card-actions-item">Operate</view>
+                </view>
+			</view>
+			<view class="uni-card__actions">
+				<view class="card-actions" style="font-size: 30rpx;">
+					<view class="card-actions-item"></view>
+					<view class="card-actions-item">Dunk Tank</view>
+					<view class="card-actions-item">
+						<button class="fa fa-users" size="mini" bindtap="toEditDunkTankMgr" style="font-size: 30rpx;"></button>
+					</view>
+				</view>
+				<view class="card-actions" style="font-size: 30rpx;">
+					<view class="card-actions-item"></view>
+					<view class="card-actions-item">Lucky Draw</view>
+					<view class="card-actions-item">
+						<button class="fa fa-users" size="mini" bindtap="toEditLuckyDrawMgr" style="font-size: 30rpx;"></button>
+					</view>
+				</view>
+				<view class="card-actions" wx:for="{{dataList}}" wx:key="this" style="font-size: 30rpx;">
+					<view class="card-actions-item">{{item.booth_no}}</view>
+					<view class="card-actions-item">{{item.booth_name}}</view>
+					<view class="card-actions-item">
+						<button class="fa fa-users" size="mini" data-boothid="{{item.booth_ID}}" data-boothno="{{item.booth_no}}" data-boothname="{{item.booth_name}}" bindtap="toEditBoothMgr" style="font-size: 30rpx;"></button>
+					</view>
+				</view>
+				<block wx:if="{{dataList.length == 0}}">
+					<view class="page__bd">
+						<view class="weui-loadmore weui-loadmore_line">
+							<text class="weui-loadmore__tips">No data</text>
+						</view>
+					</view>
+				</block>
+			</view>
+        </view>
+    </view>
+</view>

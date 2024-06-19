@@ -1,0 +1,17 @@
+/* pages/EventAdmin/BoothManager/ViewEagleBuck/ViewEagleBuck.wxss */
+@import "/pages/BoothLists/Foods/Foods.wxss";
+.uni-content-right{
+	display: flex;
+	flex-direction: column;
+	margin-right: 30rpx;
+	margin-top: 20rpx;
+  
+  }
+
+  .uni-body {
+	display: flex;
+	justify-content: space-between;
+  }
+  .uni-body {
+	border-bottom: 1rpx solid #ddd;
+  }

@@ -1,0 +1,362 @@
+<!--pages/EventAdmin/BoothManager/BoothManager.wxml-->
+<wxs module="fmt" src="../../../utils/format.wxs"></wxs>
+<view class="content">
+    <my-top backflag="true" homeflag="true" isFixation="true" toptitle='Event Setting'></my-top>
+    <view class="container">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-body">
+					<view class="uni-section-header">
+						<view class="uni-section-line"></view>
+						<view class="uni-section-header__content">Event Basic information</view>
+					</view>
+					<view class="uni-content-right"> 
+						<view class="uni-content-no">
+							<button class="fa fa-pencil" type="primary" size="mini" bindtap="editEventSetting" style="font-size: 35rpx;background-color: #1a61bd;"></button>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Active state</view>
+					<view class="uni-forms-item__input">
+						<block wx:if="{{activityStatus == 0}}"><text style="color: red;">Unopened</text></block>
+						<block wx:elif="{{activityStatus == 1}}"><text>Activity not started</text></block>
+						<block wx:elif="{{activityStatus == 2}}"><text>Activity in progress</text></block>
+						<block wx:elif="{{activityStatus == 3}}"><text style="color: red;">Activity has ended</text></block>
+						<block wx:elif="{{activityStatus == 4}}"><text style="color: red;">Terminate</text></block>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Name of the Event</view>
+					<view class="uni-forms-item__input">{{activityEvent.name}}</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Video</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{videoUrl}}" mode="aspectFit" wx:if="{{videoUrl != undefined && videoUrl != null && videoUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">introduction</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.introduction}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Venue</view>
+					<view class="uni-forms-item__input">{{activityEvent.venue}}</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Map</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{mapUrl}}" mode="aspectFit" wx:if="{{mapUrl != undefined && mapUrl != null && mapUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Commendation</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.credits}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">Start date / time</view>
+					<view class="uni-forms-item__input">{{fmt.formatDate_yyyyMMdd(activityEvent.startDate)}}</view>
+				</view>
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label">End date / time</view>
+					<view class="uni-forms-item__input">{{fmt.formatDate_yyyyMMdd(activityEvent.endDate)}}</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Food</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{foodUrl}}" mode="aspectFit" wx:if="{{foodUrl != undefined && foodUrl != null && foodUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Food Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.foodDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Game</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{gameUrl}}" mode="aspectFit" wx:if="{{gameUrl != undefined && gameUrl != null && gameUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Game Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.gameDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Main Stage Performances</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{performancesMainUrl}}" mode="aspectFit" wx:if="{{performancesMainUrl != undefined && performancesMainUrl != null && performancesMainUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Main Stage Performances Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.performancesMainDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Hillside Stage Performances</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{performancesHillsideUrl}}" mode="aspectFit" wx:if="{{performancesHillsideUrl != undefined && performancesHillsideUrl != null && performancesHillsideUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Hillside Stage Performances Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.performancesHillsideDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Vendor</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{vendorUrl}}" mode="aspectFit" wx:if="{{vendorUrl != undefined && vendorUrl != null && vendorUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Vendor Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.vendorDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Student Market Place</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{studentMarketPlaceUrl}}" mode="aspectFit" wx:if="{{studentMarketPlaceUrl != undefined && studentMarketPlaceUrl != null && studentMarketPlaceUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Student Market Place Description</view>
+					<view class="uni-forms-item__input">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.studentMarketPlaceDesc}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 230rpx;">
+					<view class="uni-forms-item__label">Sponsor</view>
+					<view class="weui-uploader">
+						<view class="weui-uploader__bd">
+							<view class="weui-uploader__files">
+								<view class="weui-uploader__file">
+									<image class="weui-uploader__img" src="{{sponsorUrl}}" mode="aspectFit" wx:if="{{sponsorUrl != undefined && sponsorUrl != null && sponsorUrl != ''}}" />
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="uni-forms-item" style="min-height: 240rpx;">
+					<view class="uni-forms-item__label">Sponsor Description</view>
+					<view class="uni-forms-item__input" style="margin-bottom: 30rpx;">
+						<view style="width: 100%;line-height: 40rpx;word-wrap: break-word;">
+							<text decode="true">{{activityEvent.sponsorDesc}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<view class="uni-body">
+						<view class="uni-section-header">
+							<view class="uni-section-line"></view>
+							<view class="uni-section-header__content">Booth & Activities Lists</view>
+						</view>
+					</view>
+					<view class="uni-card__actions">
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.foods}}"></view>
+								Foods
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-boothtype="1" bindtap="toImportBooth" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-boothtype="1" bindtap="toViewBoothList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.games}}"></view>
+								Games
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-boothtype="2" bindtap="toImportBooth" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-boothtype="2" bindtap="toViewBoothList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.mainStage}}"></view>
+								Main Stage Performances
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-boothtype="3" bindtap="toImportBooth" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-boothtype="3" bindtap="toViewBoothList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.hillsideStage}}"></view>
+								Hillside Stage Performances
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-boothtype="4" bindtap="toImportBooth" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-boothtype="4" bindtap="toViewBoothList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.dunkTank}}"></view>
+								Dunk Tank
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-search" bindtap="toViewDunkTankList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.luckyDraw}}"></view>
+								Lucky Draw
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-search" bindtap="toViewLuckyDrawList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.sponsors}}"></view>
+								Sponsors
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-sponsortype="1" bindtap="toImportSponsor" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-sponsortype="1" bindtap="toViewSponsorList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.vendors}}"></view>
+								Vendors
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-sponsortype="2" bindtap="toImportSponsor" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-sponsortype="2" bindtap="toViewSponsorList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.studentMarketPlace}}"></view>
+								Student Market Place
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-upload" data-sponsortype="3" bindtap="toImportSponsor" style="font-size: 30rpx;"></button>
+								<button class="fa fa-search" data-sponsortype="3" bindtap="toViewSponsorList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.eagleBuck}}"></view>
+								Eagle Buck
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-search" bindtap="toViewEagleBuckList" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+						<view class="card-actions">
+							<view class="card-actions-item" style="width: 50%;">
+								<view class="fa fa-check" style="color: green;" wx:if="{{baseDataStatus.ticket}}"></view>
+								Lucky Draw Ticket
+							</view>
+							<view class="card-actions-item" style="width: 40%;">
+								<button class="fa fa-search" bindtap="toViewLuckyDrawCommodity" style="font-size: 30rpx;margin-left: 5rpx;"></button>
+							</view>
+						</view>
+					</view>
+					<view class="button-group" style="margin-top: 40rpx;">
+						<view>
+							Active state ：
+							<block wx:if="{{activityStatus == 0}}"><text style="color: red;">Unopened</text></block>
+							<block wx:elif="{{activityStatus == 1}}"><text>Activity not started</text></block>
+							<block wx:elif="{{activityStatus == 2}}"><text>Activity in progress</text></block>
+							<block wx:elif="{{activityStatus == 3}}"><text style="color: red;">Activity has ended</text></block>
+							<block wx:elif="{{activityStatus == 4}}"><text style="color: red;">Terminate</text></block>
+						</view>
+					</view>
+					<view class="button-group" wx:if="{{activityEvent.activity_ID != undefined && activityEvent.activity_ID > 0}}">
+						<view class="uni-forms-item__button" wx:if="{{baseDataStatus.totalStatus && (activityStatus == 0 || activityStatus == 4)}}" bindtap="ActicityLaunch" style="width: 40%; border-radius: 8rpx;">Launch</view>
+						<view class="uni-forms-item__button" wx:if="{{activityStatus != 0 && activityStatus != 4}}" bindtap="ActicityEnd" style="width: 40%; border-radius: 8rpx;">End</view>
+					</view>
+				</view>
+			</view>
+		</view>
+    </view>
+</view>

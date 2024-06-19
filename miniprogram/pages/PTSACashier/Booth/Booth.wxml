@@ -1,0 +1,46 @@
+<!--pages/PTSACashier/Booth/Booth.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='PTSA CASHIER'></my-top>
+	<scroll-view scroll-y="true" style="height: {{xheight}}">
+		<view class="uni-card-ul uni-card--shadow uni-card--border">
+			<view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+				<view style="margin-top: 10rpx;">Booth Search</view>
+			</view>
+			<view class="uni-card__content" style="padding: 10px;">
+				<view class="uni-card__actions">
+					<view class="card-actions">
+						<view class="card-actions-item" style="width:50%">
+							<input style="border: 1px solid;font-size: 30rpx;" model:value="{{searchInp}}" placeholder="Booth No/Name" />
+						</view>
+						<view class="card-actions-item">
+							<button type="primary" size="mini" bindtap="searchBtn" style="font-size: 30rpx;background-color: #1a61bd;">Search</button>
+						</view>
+					</view>
+				</view>
+				<view class="uni-card__actions" style="font-size: 30rpx;">
+					<view class="card-actions">
+						<view class="card-actions-item">No.</view>
+						<view class="card-actions-item" style="width: 50%;">Booth Name</view>
+						<view class="card-actions-item">QR code</view>
+					</view>
+				</view>
+				<view class="uni-card__actions" wx:for="{{boothList}}" wx:key="this">
+					<view class="card-actions" style="font-size: 30rpx;">
+						<view class="card-actions-item">{{item.booth_no}}</view>
+						<view class="card-actions-item" style="width: 50%;">{{item.booth_name}}</view>
+						<view class="card-actions-item">
+							<button class="fa fa-search" size="mini" data-id="{{item.booth_ID}}" bindtap="viewBoothQRCode" style="font-size: 30rpx;"></button>
+						</view>
+					</view>
+				</view>
+				<block wx:if="{{boothList.length == 0}}">
+					<view class="page__bd">
+						<view class="weui-loadmore weui-loadmore_line">
+							<text class="weui-loadmore__tips">No data</text>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</scroll-view>
+</view>

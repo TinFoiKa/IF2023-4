@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "my-top":"../../components/my-top/my-top"  
+    },
+    "component": true,
+    "navigationStyle": "custom",
+    "navigationBarTitleText":"Pay"
+}

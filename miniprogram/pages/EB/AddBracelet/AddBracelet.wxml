@@ -1,0 +1,24 @@
+<!--pages/EB/AddBracelet/AddBracelet.wxml-->
+<view class="content">
+    <my-top backflag="true" toptitle=''></my-top>
+    <view class="container">
+        <view class="img-group">
+            <image class="avar-img" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/bracelet.jpg" style="height: 444rpx;width: 574rpx;margin: 30px 0px;"></image>
+        </view>
+		<view class="name-form">
+            <view class="input-group">
+                <image class="input-img" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/rename.png"></image>
+                <input class="input-label" maxlength="15" bindinput="nicknameInput" placeholder="Alias" cursor-spacing="20" />
+            </view>
+        </view>
+        <view style="width: 100%;font-size: 30rpx;">
+            <view style="margin: 10px auto;width: 80%;display: flex;justify-content: center;flex-wrap: wrap;">
+                Press "Add" to scan and bind the QR Code on the Bracelet(s) to your account.
+            </view>
+        </view>
+        <view class="button-group" style="margin-top: 40rpx;">
+            <view class="uni-forms-item__button" bindtap="add" style="width: 40%; border-radius: 8rpx;">Add</view>
+            <view class="uni-forms-item__button" bindtap="cancel" style="width: 40%; border-radius: 8rpx;">Cancel</view>
+        </view>
+    </view>
+</view>

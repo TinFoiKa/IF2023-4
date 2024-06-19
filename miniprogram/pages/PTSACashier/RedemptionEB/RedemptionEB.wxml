@@ -1,0 +1,12 @@
+<!--pages/PTSACashier/RedemptionEB/RedemptionEB.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='PTSA CASHIER'></my-top>
+	<view class="container">
+        <view style="margin-left: 50rpx;margin-top: 10rpx;font-size: 50rpx;">
+			<view style="margin-top: 10rpx;">Scan the visitor's IFQR and deduct all Eagle Buck(s) from the visitor's account. </view>
+		</view>
+		<view class="img-group" style="margin-top: 50rpx;">
+            <image class="avar-img" bindtap="scanClearAllEB" src="cloud://sas-2023if-6gnixjwic1713458.7361-sas-2023if-6gnixjwic1713458-1300310271/images/Scan.png" style="width: 284rpx;height: 228rpx;margin: 10px 0px;"></image>
+        </view>
+    </view>
+</view>

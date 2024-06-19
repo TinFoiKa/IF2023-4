@@ -1,0 +1,22 @@
+<!--pages/EventAdmin/BoothManager/EditSponsor/EditSponsor.wxml-->
+<view class="content">
+    <my-top backflag="true" homeflag="true" toptitle='Edit {{sponsorTypeName}}'></my-top>
+	<form bindsubmit="submitForm">
+		<view class="uni-section-content">
+			<view class="uni-forms">
+				<view class="uni-forms-item">
+					<view class="uni-forms-item__label"><span style="color: red;">*</span>Company Name</view>
+					<view class="uni-forms-item__input">
+						<input class="input-label" model:value="{{companyName}}" maxlength="200" style="width: 100%;" placeholder="Please input Company Name" style="width: 100%;" />
+					</view>
+				</view>
+				<view class="button-group">
+					<button type="primary" bindtap="submit" disabled="{{disabled}}" style="width: 40%;background-color: #1a61bd;">Submit</button>
+				</view>
+				<view class="button-group">
+					<text style="color: red;">{{errorMsg}}</text>
+				</view>
+			</view>
+		</view>
+	</form>
+</view>
